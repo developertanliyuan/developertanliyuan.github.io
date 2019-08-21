@@ -110,7 +110,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>DeveloperTanliyuan - 编程开发、分享生活、分享技术</title>
+    <title>分库分表之后处理主键id的办法 | DeveloperTanliyuan - 编程开发、分享生活、分享技术</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -131,7 +131,7 @@
       <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
       <ul id="menu" role="menubar" aria-hidden="false">
         
-        <li role="menuitem"><a href="/" class="current"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
         
         <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
         
@@ -152,25 +152,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index page">
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2019/08/21/分库分表之后处理主键id的办法/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Tan Liyuan">
-        <meta itemprop="description" content="一个热爱生活的小男孩">
-        <meta itemprop="image" content="/images/tanliyuan.jpg">
+       <meta itemprop="name" content="Tan Liyuan">
+       <meta itemprop="description" content="一个热爱生活的小男孩">
+       <meta itemprop="image" content="/images/tanliyuan.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="DeveloperTanliyuan">
+       <meta itemprop="name" content="DeveloperTanliyuan">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/21/分库分表之后处理主键id的办法/" itemprop="url">分库分表之后处理主键id的办法</a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">分库分表之后处理主键id的办法</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -190,7 +187,6 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
       <h1 id="数据库自增ID"><a href="#数据库自增ID" class="headerlink" title="数据库自增ID"></a>数据库自增ID</h1><p>这个就是说你的系统里每次得到一个id，都是往一个库的一个表里插入一条没什么业务含义的数据，然后获取一个数据库自增的一个id。拿到这个id之后再往对应的分库分表里去写入。</p>
 <p>这个方案的好处就是方便简单，谁都会用；缺点就是单库生成自增id，要是高并发的话，就会有瓶颈的；如果你硬是要改进一下，那么就专门开一个服务出来，这个服务每次就拿到当前id最大值，然后自己递增几个id，一次性返回一批id，然后再把当前最大id值修改成递增几个id之后的一个值；但是无论怎么说都是基于单个数据库。</p>
 <p>适合的场景：你分库分表就俩原因，要不就是单库并发太高，要不就是单库数据量太大；除非是你并发不高，但是数据量太大导致的分库分表扩容，你可以用这个方案，因为可能每秒最高并发最多就几百，那么就走单独的一个库和表生成自增主键即可。</p>
@@ -214,7 +210,6 @@
 <p>0 | 0001100 10100010 10111110 10001001 01011100 00 | 10001 | 1 1001 | 0000 00000001</p>
 <p>比如我们来观察上面的那个，就是一个典型的二进制的64位的id，换算成10进制就是910499571847892992。</p>
 <figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.management.ManagementFactory;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.NetworkInterface;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;名称：IdWorker.java&lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;描述：分布式自增长ID&lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;pre&gt;</span></span><br><span class="line"><span class="comment"> *     Twitter的 Snowflake　JAVA实现方案</span></span><br><span class="line"><span class="comment"> * &lt;/pre&gt;</span></span><br><span class="line"><span class="comment"> * 核心代码为其IdWorker这个类实现，其原理结构如下，我分别用一个0表示一位，用—分割开部分的作用：</span></span><br><span class="line"><span class="comment"> * 1||0---0000000000 0000000000 0000000000 0000000000 0 --- 00000 ---00000 ---000000000000</span></span><br><span class="line"><span class="comment"> * 在上面的字符串中，第一位为未使用（实际上也可作为long的符号位），接下来的41位为毫秒级时间，</span></span><br><span class="line"><span class="comment"> * 然后5位datacenter标识位，5位机器ID（并不算标识符，实际是为线程标识），</span></span><br><span class="line"><span class="comment"> * 然后12位该毫秒内的当前毫秒内的计数，加起来刚好64位，为一个Long型。</span></span><br><span class="line"><span class="comment"> * 这样的好处是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞（由datacenter和机器ID作区分），</span></span><br><span class="line"><span class="comment"> * 并且效率较高，经测试，snowflake每秒能够产生26万ID左右，完全满足需要。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加))</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Polim</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdWorker</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> twepoch = <span class="number">1288834974657L</span>;</span><br><span class="line">    <span class="comment">// 机器标识位数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> workerIdBits = <span class="number">5L</span>;</span><br><span class="line">    <span class="comment">// 数据中心标识位数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> datacenterIdBits = <span class="number">5L</span>;</span><br><span class="line">    <span class="comment">// 机器ID最大值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> maxWorkerId = -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; workerIdBits);</span><br><span class="line">    <span class="comment">// 数据中心ID最大值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> maxDatacenterId = -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; datacenterIdBits);</span><br><span class="line">    <span class="comment">// 毫秒内自增位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> sequenceBits = <span class="number">12L</span>;</span><br><span class="line">    <span class="comment">// 机器ID偏左移12位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> workerIdShift = sequenceBits;</span><br><span class="line">    <span class="comment">// 数据中心ID左移17位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> datacenterIdShift = sequenceBits + workerIdBits;</span><br><span class="line">    <span class="comment">// 时间毫秒左移22位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">long</span> sequenceMask = -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; sequenceBits);</span><br><span class="line">    <span class="comment">/* 上次生产id时间戳 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> lastTimestamp = -<span class="number">1L</span>;</span><br><span class="line">    <span class="comment">// 0，并发控制</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> sequence = <span class="number">0L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> workerId;</span><br><span class="line">    <span class="comment">// 数据标识id部分</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> datacenterId;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IdWorker</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.datacenterId = getDatacenterId(maxDatacenterId);</span><br><span class="line">        <span class="keyword">this</span>.workerId = getMaxWorkerId(datacenterId, maxWorkerId);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> workerId</span></span><br><span class="line"><span class="comment">     *            工作机器ID</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> datacenterId</span></span><br><span class="line"><span class="comment">     *            序列号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IdWorker</span><span class="params">(<span class="keyword">long</span> workerId, <span class="keyword">long</span> datacenterId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (workerId &gt; maxWorkerId || workerId &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(String.format(<span class="string">"worker Id can't be greater than %d or less than 0"</span>, maxWorkerId));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (datacenterId &gt; maxDatacenterId || datacenterId &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(String.format(<span class="string">"datacenter Id can't be greater than %d or less than 0"</span>, maxDatacenterId));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.workerId = workerId;</span><br><span class="line">        <span class="keyword">this</span>.datacenterId = datacenterId;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取下一个ID</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">long</span> <span class="title">nextId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> timestamp = timeGen();</span><br><span class="line">        <span class="keyword">if</span> (timestamp &lt; lastTimestamp) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(String.format(<span class="string">"Clock moved backwards.  Refusing to generate id for %d milliseconds"</span>, lastTimestamp - timestamp));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp == timestamp) &#123;</span><br><span class="line">            <span class="comment">// 当前毫秒内，则+1</span></span><br><span class="line">            sequence = (sequence + <span class="number">1</span>) &amp; sequenceMask;</span><br><span class="line">            <span class="keyword">if</span> (sequence == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 当前毫秒内计数满了，则等待下一秒</span></span><br><span class="line">                timestamp = tilNextMillis(lastTimestamp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sequence = <span class="number">0L</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        lastTimestamp = timestamp;</span><br><span class="line">        <span class="comment">// ID偏移组合生成最终的ID，并返回ID</span></span><br><span class="line">        <span class="keyword">long</span> nextId = ((timestamp - twepoch) &lt;&lt; timestampLeftShift)</span><br><span class="line">                | (datacenterId &lt;&lt; datacenterIdShift)</span><br><span class="line">                | (workerId &lt;&lt; workerIdShift) | sequence;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> nextId;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">tilNextMillis</span><span class="params">(<span class="keyword">final</span> <span class="keyword">long</span> lastTimestamp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> timestamp = <span class="keyword">this</span>.timeGen();</span><br><span class="line">        <span class="keyword">while</span> (timestamp &lt;= lastTimestamp) &#123;</span><br><span class="line">            timestamp = <span class="keyword">this</span>.timeGen();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> timestamp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">timeGen</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 获取 maxWorkerId</span></span><br><span class="line"><span class="comment">     * &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getMaxWorkerId</span><span class="params">(<span class="keyword">long</span> datacenterId, <span class="keyword">long</span> maxWorkerId)</span> </span>&#123;</span><br><span class="line">        StringBuffer mpid = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        mpid.append(datacenterId);</span><br><span class="line">        String name = ManagementFactory.getRuntimeMXBean().getName();</span><br><span class="line">        <span class="keyword">if</span> (!name.isEmpty()) &#123;</span><br><span class="line">         <span class="comment">/*</span></span><br><span class="line"><span class="comment">          * GET jvmPid</span></span><br><span class="line"><span class="comment">          */</span></span><br><span class="line">            mpid.append(name.split(<span class="string">"@"</span>)[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">       * MAC + PID 的 hashcode 获取16个低位</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">        <span class="keyword">return</span> (mpid.toString().hashCode() &amp; <span class="number">0xffff</span>) % (maxWorkerId + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 数据标识id部分</span></span><br><span class="line"><span class="comment">     * &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getDatacenterId</span><span class="params">(<span class="keyword">long</span> maxDatacenterId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> id = <span class="number">0L</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            InetAddress ip = InetAddress.getLocalHost();</span><br><span class="line">            NetworkInterface network = NetworkInterface.getByInetAddress(ip);</span><br><span class="line">            <span class="keyword">if</span> (network == <span class="keyword">null</span>) &#123;</span><br><span class="line">                id = <span class="number">1L</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">byte</span>[] mac = network.getHardwareAddress();</span><br><span class="line">                id = ((<span class="number">0x000000FF</span> &amp; (<span class="keyword">long</span>) mac[mac.length - <span class="number">1</span>])</span><br><span class="line">                        | (<span class="number">0x0000FF00</span> &amp; (((<span class="keyword">long</span>) mac[mac.length - <span class="number">2</span>]) &lt;&lt; <span class="number">8</span>))) &gt;&gt; <span class="number">6</span>;</span><br><span class="line">                id = id % (maxDatacenterId + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">" getDatacenterId: "</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
     </main>
     <footer class="post-footer">
       
@@ -227,244 +222,40 @@
     </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2019/07/31/Markdown基本语法/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Tan Liyuan">
-        <meta itemprop="description" content="一个热爱生活的小男孩">
-        <meta itemprop="image" content="/images/tanliyuan.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="DeveloperTanliyuan">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/07/31/Markdown基本语法/" itemprop="url">Markdown基本语法</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-31T10:58:38+08:00">2019-07-31 10:58:38</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h1 id="1-Markdown是什么？"><a href="#1-Markdown是什么？" class="headerlink" title="1. Markdown是什么？"></a>1. Markdown<em>是什么</em>？</h1><p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。<br><strong>Markdown</strong>也可以理解为将以MARKDOWN语法编写的语言转换成HTML内容的工具。    </p>
-<h1 id="2-谁创造了它？"><a href="#2-谁创造了它？" class="headerlink" title="2. 谁创造了它？"></a>2. <em>谁</em>创造了它？</h1><p>它由<a href="http://www.aaronsw.com/" target="_blank" rel="noopener"><strong>Aaron Swartz</strong></a>和<strong>John Gruber</strong>共同设计，<strong>Aaron Swartz</strong>就是那位于去年（<em>2013年1月11日</em>）自杀,有着<strong>开挂</strong>一般人生经历的程序员。维基百科对他的<a href="http://zh.wikipedia.org/wiki/%E4%BA%9A%E4%BC%A6%C2%B7%E6%96%AF%E6%B2%83%E8%8C%A8" target="_blank" rel="noopener">介绍</a>是：<strong>软件工程师、作家、政治组织者、互联网活动家、维基百科人</strong>。    </p>
-<p>他有着足以让你跪拜的人生经历：    </p>
-<ul>
-<li><strong>14岁</strong>参与RSS 1.0规格标准的制订。     </li>
-<li><strong>2004</strong>年入读<strong>斯坦福</strong>，之后退学。   </li>
-<li><strong>2005</strong>年创建<a href="http://infogami.org/" target="_blank" rel="noopener">Infogami</a>，之后与<a href="http://www.reddit.com/" target="_blank" rel="noopener">Reddit</a>合并成为其合伙人。   </li>
-<li><strong>2010</strong>年创立求进会（Demand Progress），积极参与禁止网络盗版法案（SOPA）活动，最终该提案被撤回。   </li>
-<li><strong>2011</strong>年7月19日，因被控从MIT和JSTOR下载480万篇学术论文并以免费形式上传于网络被捕。     </li>
-<li><strong>2013</strong>年1月自杀身亡。    </li>
-</ul>
-<p><img src="/images/Aaron_Swartz.jpg" alt="Aaron Swartz"></p>
-<p>天才都有早逝的归途。</p>
-<h1 id="3-为什么要使用它？"><a href="#3-为什么要使用它？" class="headerlink" title="3. 为什么要使用它？"></a>3. <em>为什么</em>要使用它？</h1><ul>
-<li>它是易读（看起来舒服）、易写（语法简单）、易更改<strong>纯文本</strong>。处处体现着<strong>极简主义</strong>的影子。</li>
-<li>兼容HTML，可以转换为HTML格式发布。</li>
-<li>跨平台使用。</li>
-<li>越来越多的网站支持Markdown。</li>
-<li>更方便清晰地组织你的电子邮件。（Markdown-here, Airmail）</li>
-<li>摆脱Word（我不是认真的）。</li>
-</ul>
-<h1 id="4-怎么使用？"><a href="#4-怎么使用？" class="headerlink" title="4. 怎么使用？"></a>4. <em>怎么</em>使用？</h1><p>如果不算<strong>扩展</strong>，Markdown的语法绝对<strong>简单</strong>到让你爱不释手。</p>
-<p>Markdown语法主要分为如下几大部分：<br><strong>标题</strong>，<strong>段落</strong>，<strong>区块引用</strong>，<strong>代码区块</strong>，<strong>强调</strong>，<strong>列表</strong>，<strong>分割线</strong>，<strong>链接</strong>，<strong>图片</strong>，<strong>反斜杠 <code>\</code></strong>，<strong>符号’`’</strong>。</p>
-<h4 id="4-1-标题"><a href="#4-1-标题" class="headerlink" title="4.1 标题"></a>4.1 标题</h4><p>两种形式：<br>1）使用<code>=</code>和<code>-</code>标记一级和二级标题。</p>
-<blockquote>
-<p>一级标题<br><code>=========</code><br>二级标题<br><code>---------</code></p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题   "></a>一级标题   </h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
-<p>2）使用<code>#</code>，可表示1-6级标题。</p>
-<blockquote>
-<p># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>##### 五级标题<br>###### 六级标题    </p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></blockquote>
-<h4 id="4-2-段落"><a href="#4-2-段落" class="headerlink" title="4.2 段落"></a>4.2 段落</h4><p>段落的前后要有空行，所谓的空行是指没有文字内容。若想在段内强制换行的方式是使用<strong>两个以上</strong>空格加上回车（引用中换行省略回车）。</p>
-<h4 id="4-3-区块引用"><a href="#4-3-区块引用" class="headerlink" title="4.3 区块引用"></a>4.3 区块引用</h4><p>在段落的每行或者只在第一行使用符号<code>&gt;</code>,还可使用多个嵌套引用，如：</p>
-<blockquote>
-<p>&gt; 区块引用<br>&gt;&gt; 嵌套引用  </p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<p>区块引用  </p>
-<blockquote>
-<p>嵌套引用</p>
-</blockquote>
-</blockquote>
-<h4 id="4-4-代码区块"><a href="#4-4-代码区块" class="headerlink" title="4.4 代码区块"></a>4.4 代码区块</h4><p>代码区块的建立是在每行加上4个空格或者一个制表符（如同写代码一样）。如<br>普通段落：</p>
-<p>void main()<br>{<br>    printf(“Hello, Markdown.”);<br>}    </p>
-<p>代码区块：</p>
-<pre><code>void main()
-{
-    printf(&quot;Hello, Markdown.&quot;);
-}</code></pre><p><strong>注意</strong>:需要和普通段落之间存在空行。</p>
-<h4 id="4-5-强调"><a href="#4-5-强调" class="headerlink" title="4.5 强调"></a>4.5 强调</h4><p>在强调内容两侧分别加上<code>*</code>或者<code>_</code>，如：</p>
-<blockquote>
-<p>*斜体*，_斜体_<br>**粗体**，__粗体__</p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<p><em>斜体</em>，<em>斜体</em><br><strong>粗体</strong>，<strong>粗体</strong></p>
-</blockquote>
-<h4 id="4-6-列表"><a href="#4-6-列表" class="headerlink" title="4.6 列表"></a>4.6 列表</h4><p>使用<code>·</code>、<code>+</code>、或<code>-</code>标记无序列表，如：</p>
-<blockquote>
-<p>-（+*） 第一项<br>-（+*） 第二项<br>- （+*）第三项</p>
-</blockquote>
-<p><strong>注意</strong>：标记后面最少有一个_空格<em>或</em>制表符_。若不在引用区块中，必须和前方段落之间存在空行。</p>
-<p>效果：</p>
-<blockquote>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-</blockquote>
-<p>有序列表的标记方式是将上述的符号换成数字,并辅以<code>.</code>，如：</p>
-<blockquote>
-<p>1 . 第一项<br>2 . 第二项<br>3 . 第三项    </p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-</blockquote>
-<h4 id="4-7-分割线"><a href="#4-7-分割线" class="headerlink" title="4.7 分割线"></a>4.7 分割线</h4><p>分割线最常使用就是三个或以上<code>*</code>，还可以使用<code>-</code>和<code>_</code>。</p>
-<h4 id="4-8-链接"><a href="#4-8-链接" class="headerlink" title="4.8 链接"></a>4.8 链接</h4><p>链接可以由两种形式生成：<strong>行内式</strong>和<strong>参考式</strong>。<br><strong>行内式</strong>：</p>
-<blockquote>
-<p>[younghz的Markdown库](https:://github.com/younghz/Markdown “Markdown”)。</p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<p><a href="https:://github.com/younghz/Markdown" title="Markdown" target="_blank" rel="noopener">younghz的Markdown库</a>。</p>
-</blockquote>
-<p><strong>参考式</strong>：</p>
-<blockquote>
-<p>[younghz的Markdown库1][1]<br>[younghz的Markdown库2][2]<br>[1]:https:://github.com/younghz/Markdown “Markdown”<br>[2]:https:://github.com/younghz/Markdown “Markdown”    </p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<p><a href="https:://github.com/younghz/Markdown" title="Markdown" target="_blank" rel="noopener">younghz的Markdown库1</a><br><a href="https:://github.com/younghz/Markdown" title="Markdown" target="_blank" rel="noopener">younghz的Markdown库2</a></p>
-</blockquote>
-<p><strong>注意</strong>：上述的<code>[1]:https:://github.com/younghz/Markdown &quot;Markdown&quot;</code>不出现在区块中。</p>
-<h4 id="4-9-图片"><a href="#4-9-图片" class="headerlink" title="4.9 图片"></a>4.9 图片</h4><p>添加图片的形式和链接相似，只需在链接的基础上前方加一个<code>！</code>。</p>
-<h4 id="4-10-反斜杠"><a href="#4-10-反斜杠" class="headerlink" title="4.10 反斜杠\"></a>4.10 反斜杠<code>\</code></h4><p>相当于<strong>反转义</strong>作用。使符号成为普通符号。</p>
-<h4 id="4-11-符号’-’"><a href="#4-11-符号’-’" class="headerlink" title="4.11 符号’`’"></a>4.11 符号’`’</h4><p>起到标记作用。如：</p>
-<blockquote>
-<p>`ctrl+a`</p>
-</blockquote>
-<p>效果：</p>
-<blockquote>
-<p><code>ctrl+a</code>    </p>
-</blockquote>
-<h1 id="5-谁在用？"><a href="#5-谁在用？" class="headerlink" title="5. 谁在用？"></a>5. <em>谁</em>在用？</h1><p>Markdown的使用者：</p>
-<ul>
-<li>GitHub</li>
-<li>简书</li>
-<li>Stack Overflow</li>
-<li>Apollo</li>
-<li>Moodle</li>
-<li>Reddit</li>
-<li>等等</li>
-</ul>
-<h1 id="6-尝试一下"><a href="#6-尝试一下" class="headerlink" title="6. 尝试一下"></a>6. 尝试一下</h1><ul>
-<li><strong>Chrome</strong>下的插件诸如<code>stackedit</code>与<code>markdown-here</code>等非常方便，也不用担心平台受限。</li>
-<li><strong>在线</strong>的dillinger.io评价也不错   </li>
-<li><strong>Windowns</strong>下的MarkdownPad也用过，不过免费版的体验不是很好。    </li>
-<li><strong>Mac</strong>下的Mou是国人贡献的，口碑很好。</li>
-<li><strong>Linux</strong>下的ReText不错。    </li>
-</ul>
-<p><strong>当然，最终境界永远都是笔下是语法，心中格式化 :)。</strong></p>
-<hr>
-<p><strong>注意</strong>：不同的Markdown解释器或工具对相应语法（扩展语法）的解释效果不尽相同，具体可参见工具的使用说明。<br>虽然有人想出面搞一个所谓的标准化的Markdown，[没想到还惹怒了健在的创始人John Gruber]<br>(<a href="http://blog.codinghorror.com/standard-markdown-is-now-common-markdown/" target="_blank" rel="noopener">http://blog.codinghorror.com/standard-markdown-is-now-common-markdown/</a> )。</p>
-<hr>
-<p>以上基本是所有traditonal markdown的语法。</p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/语法/" rel="tag"><i class="fas fa-tags"></i>语法</a>
-        
-      </div>
-      
-    </footer>
-  </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2019/07/20/hello-world/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Tan Liyuan">
-        <meta itemprop="description" content="一个热爱生活的小男孩">
-        <meta itemprop="image" content="/images/tanliyuan.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="DeveloperTanliyuan">
-      </span>
+<div class="reward" id="reward">
+  <p>如果本文对你有所帮助，请赏我1个铜板买喵粮自己吃，您的支持是我最大的动力！！！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/07/20/hello-world/" itemprop="url">Hello World</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-20T20:30:32+08:00">2019-07-20 20:30:32</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-    </footer>
-  </article>
   
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/07/31/Markdown基本语法/" rel="next" title="Markdown基本语法"><i class="fas fa-angle-left"></i><span class="nav-title">Markdown基本语法</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
   
   
 </div>
@@ -526,6 +317,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#数据库自增ID"><span class="toc-text">数据库自增ID</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#UUID"><span class="toc-text">UUID</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#获取系统当前时间"><span class="toc-text">获取系统当前时间</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#snowflake算法"><span class="toc-text">snowflake算法</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>
