@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color>
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="DeveloperTanliyuan" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/[object Object].css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>JVM知识体系 | DeveloperTanliyuan - 编程开发、分享生活、分享技术</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">DeveloperTanliyuan</a></h1>
+        <h2 class="subtitle">编程开发、分享生活、分享技术</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/dog.gif" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i>favicons<span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2021/08/06/JVM知识体系/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Tan Liyuan">
+       <meta itemprop="description" content="一个热爱生活的小男孩">
+       <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">JVM知识体系</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2021-08-06T21:38:09+08:00">2021-08-06 21:38:09</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="认识JVM"><a href="#认识JVM" class="headerlink" title="认识JVM"></a>认识JVM</h2><p>认识JVM规范：重点是理解JVM规范的作用，了解JVM规范的主要内容</p>
+<p>认识JVM：是什么、有什么、能干什么<br>JVM:Java virtual machine,也就是java虚拟机</p>
+<p>所谓的虚拟机是指：通过软件模拟的具有完整硬件系统功能、运行在一个完全隔离环境中的计算机系统</p>
+<p>JVM是通过软件来模拟Java字节玛的指令集，是Java程序运行的环境</p>
+<p>java如何实现平台无关</p>
+<p><img src="/images/img_47.png" alt="JVM概述图"></p>
+<p>JVM主要功能<br>1、通过ClassLoader寻找和装在class文件<br>2、解释字节码成为指令并执行，提供class文件运行环境<br>3、运行期间内存非配<br>4、提供硬件交互的平台</p>
+<p>虚拟机是平台无关的保障</p>
+<p><img src="/images/img_49.png" alt="虚拟机是平台无关的保障"></p>
+<p>JVM规范作用<br>1.Java虚拟机规范为不同的硬件平台提供了一种编译Java技术代码的规范。<br>2.该规范使用Java软件独立于平台，因为编译是针对作为虚拟机的“一般机器”而做。<br>3.这个“一般机器”可用软件模拟并运行于各种现存的计算机系统，也可用硬件来实现。</p>
+<p>JVM规范定义的主要内容<br>字节码指令集（相当于中央处理器CPU）,详看JVM虚拟机规范<br>class文件格式<br>数据类型和值，详看JVM虚拟机规范<br>运行时数据区<br>栈帧<br>特殊方法<br>    &lt;init&gt;:实例初始化方法，通过invokespecial指令来调用<br>    &lt;clinit&gt;:类或接口的初始化方法，不包含参数，返回void<br>类库<br>      Java虚拟机必须要对一些Java类库提供支持，否则这些类库根本无法实现，比如（反射、加载和创建类或接口，如ClassLoader、连接或初始化类和接口的类、安全，如security、多线程、弱引用）<br>异常处理<br>虚拟机的启动、加载、链接和初始化</p>
+<p>Java虚拟机规范下载地址<br><a href="https://docs.oracle.com/javase/specs/index.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/specs/index.html</a></p>
+<h2 id="class文件格式"><a href="#class文件格式" class="headerlink" title="class文件格式"></a>class文件格式</h2><ul>
+<li><p>class文件是JVM的输入，Java虚拟机规范中定义了Class文件结构。Class文件Jvm实现平台无关、技术无关的基础</p>
+<ul>
+<li><p>1.class文件是一组以8字节为单位的字节流，各个数据项目按顺序紧凑排列</p>
+</li>
+<li><p>2.对于占用空间大于8字节的数据项，按照高位在前的方式分割成多个8字节进行存储</p>
+</li>
+<li><p>3.class文件格式里面只有两种类型：无符号数、表，详看JVM虚拟机规范</p>
+<ul>
+<li><p>（1）无符号数：基本数据类型，以u1、u2、u4、u8来代表几个字节的无符号数</p>
+</li>
+<li><p>（2）表：由多个无符号数和其他表构成的符合数据类型，通常以“_info”结尾</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>javap工具生成非正式的“虚拟机汇编语言”，格式如下</p>
+</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;index&gt; &lt;opcode&gt; [&lt;operand1&gt; [&lt;operand2&gt; ...]][&lt;comment&gt;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>&lt;index&gt;是指令操作码在数组种的下标，该数组以字节的形式存储当前方法的Java虚拟机代码；也可以是相对方法起始处的字节偏移量</p>
+</li>
+<li><p>&lt;opcode&gt;是指令的助记码、&lt;operand&gt;是操作数、&lt;comment&gt;是注释</p>
+</li>
+</ul>
+<h3 id="class文件格式说明"><a href="#class文件格式说明" class="headerlink" title="class文件格式说明"></a>class文件格式说明</h3><ul>
+<li><p>constant_pool_count:是从1开始的</p>
+</li>
+<li><p>不同的常亮类型，用tag来区分的，它后面对应的info结构是不一样的</p>
+</li>
+<li><p>L表示对象，[表示数组，V表示void</p>
+</li>
+<li><p>了解预定义attribute的含义</p>
+</li>
+<li><p>stack:方法执行时，操作栈的深度</p>
+</li>
+<li><p>Locals：局部变量所需的存储空间，单位是slot</p>
+</li>
+<li><p>slot：是虚拟机为局部变量分配内存所使用的最小单位</p>
+</li>
+<li><p>arg_size：参数个数，为1的话，因实例方法会默认传入this，locals也会预留一个slot来存放</p>
+</li>
+</ul>
+<p>TestJVM.java原始文件</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package world.ismyfree.demo;</span><br><span class="line"></span><br><span class="line">public class TestJvm &#123;</span><br><span class="line"></span><br><span class="line">    public static final     String HELLO_JAVA = &quot;hello java&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(String.format(&quot;get message = %s&quot;, HELLO_JAVA));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TestJVM.class原始文件</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">cafe babe 0000 0034 002d 0a00 0400 1909</span><br><span class="line">001a 001b 0800 1c07 001d 0700 1e08 001f</span><br><span class="line">0a00 2000 210a 0022 0023 0100 0a48 454c</span><br><span class="line">4c4f 5f4a 4156 4101 0012 4c6a 6176 612f</span><br><span class="line">6c61 6e67 2f53 7472 696e 673b 0100 0d43</span><br><span class="line">6f6e 7374 616e 7456 616c 7565 0100 063c</span><br><span class="line">696e 6974 3e01 0003 2829 5601 0004 436f</span><br><span class="line">6465 0100 0f4c 696e 654e 756d 6265 7254</span><br><span class="line">6162 6c65 0100 124c 6f63 616c 5661 7269</span><br><span class="line">6162 6c65 5461 626c 6501 0004 7468 6973</span><br><span class="line">0100 1d4c 776f 726c 642f 6973 6d79 6672</span><br><span class="line">6565 2f64 656d 6f2f 5465 7374 4a76 6d3b</span><br><span class="line">0100 046d 6169 6e01 0016 285b 4c6a 6176</span><br><span class="line">612f 6c61 6e67 2f53 7472 696e 673b 2956</span><br><span class="line">0100 0461 7267 7301 0013 5b4c 6a61 7661</span><br><span class="line">2f6c 616e 672f 5374 7269 6e67 3b01 000a</span><br><span class="line">536f 7572 6365 4669 6c65 0100 0c54 6573</span><br><span class="line">744a 766d 2e6a 6176 610c 000c 000d 0700</span><br><span class="line">240c 0025 0026 0100 1067 6574 206d 6573</span><br><span class="line">7361 6765 203d 2025 7301 0010 6a61 7661</span><br><span class="line">2f6c 616e 672f 4f62 6a65 6374 0100 1b77</span><br><span class="line">6f72 6c64 2f69 736d 7966 7265 652f 6465</span><br><span class="line">6d6f 2f54 6573 744a 766d 0100 0a68 656c</span><br><span class="line">6c6f 206a 6176 6107 0027 0c00 2800 2907</span><br><span class="line">002a 0c00 2b00 2c01 0010 6a61 7661 2f6c</span><br><span class="line">616e 672f 5379 7374 656d 0100 036f 7574</span><br><span class="line">0100 154c 6a61 7661 2f69 6f2f 5072 696e</span><br><span class="line">7453 7472 6561 6d3b 0100 106a 6176 612f</span><br><span class="line">6c61 6e67 2f53 7472 696e 6701 0006 666f</span><br><span class="line">726d 6174 0100 3928 4c6a 6176 612f 6c61</span><br><span class="line">6e67 2f53 7472 696e 673b 5b4c 6a61 7661</span><br><span class="line">2f6c 616e 672f 4f62 6a65 6374 3b29 4c6a</span><br><span class="line">6176 612f 6c61 6e67 2f53 7472 696e 673b</span><br><span class="line">0100 136a 6176 612f 696f 2f50 7269 6e74</span><br><span class="line">5374 7265 616d 0100 0770 7269 6e74 6c6e</span><br><span class="line">0100 1528 4c6a 6176 612f 6c61 6e67 2f53</span><br><span class="line">7472 696e 673b 2956 0021 0005 0004 0000</span><br><span class="line">0001 0019 0009 000a 0001 000b 0000 0002</span><br><span class="line">0006 0002 0001 000c 000d 0001 000e 0000</span><br><span class="line">002f 0001 0001 0000 0005 2ab7 0001 b100</span><br><span class="line">0000 0200 0f00 0000 0600 0100 0000 0300</span><br><span class="line">1000 0000 0c00 0100 0000 0500 1100 1200</span><br><span class="line">0000 0900 1300 1400 0100 0e00 0000 4300</span><br><span class="line">0600 0100 0000 15b2 0002 1203 04bd 0004</span><br><span class="line">5903 1206 53b8 0007 b600 08b1 0000 0002</span><br><span class="line">000f 0000 000a 0002 0000 0008 0014 0009</span><br><span class="line">0010 0000 000c 0001 0000 0015 0015 0016</span><br><span class="line">0000 0001 0017 0000 0002 0018</span><br></pre></td></tr></table></figure>
+
+<p>javap -verbose TestJVM.class(助记符)</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">Classfile /home/anakin/IdeaProjects/untitled/target/classes/world/ismyfree/demo/TestJvm.class</span><br><span class="line">  Last modified 2021-8-8; size 764 bytes</span><br><span class="line">  MD5 checksum b5c5da06a2ed9a50c599a61bf2f71066</span><br><span class="line">  Compiled from &quot;TestJvm.java&quot;</span><br><span class="line">public class world.ismyfree.demo.TestJvm</span><br><span class="line">  minor version: 0</span><br><span class="line">  major version: 52</span><br><span class="line">  flags: ACC_PUBLIC, ACC_SUPER</span><br><span class="line">Constant pool:</span><br><span class="line">   #1 = Methodref          #4.#25         // java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">   #2 = Fieldref           #26.#27        // java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">   #3 = String             #28            // get message = %s</span><br><span class="line">   #4 = Class              #29            // java/lang/Object</span><br><span class="line">   #5 = Class              #30            // world/ismyfree/demo/TestJvm</span><br><span class="line">   #6 = String             #31            // hello java</span><br><span class="line">   #7 = Methodref          #32.#33        // java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span><br><span class="line">   #8 = Methodref          #34.#35        // java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">   #9 = Utf8               HELLO_JAVA</span><br><span class="line">  #10 = Utf8               Ljava/lang/String;</span><br><span class="line">  #11 = Utf8               ConstantValue</span><br><span class="line">  #12 = Utf8               &lt;init&gt;</span><br><span class="line">  #13 = Utf8               ()V</span><br><span class="line">  #14 = Utf8               Code</span><br><span class="line">  #15 = Utf8               LineNumberTable</span><br><span class="line">  #16 = Utf8               LocalVariableTable</span><br><span class="line">  #17 = Utf8               this</span><br><span class="line">  #18 = Utf8               Lworld/ismyfree/demo/TestJvm;</span><br><span class="line">  #19 = Utf8               main</span><br><span class="line">  #20 = Utf8               ([Ljava/lang/String;)V</span><br><span class="line">  #21 = Utf8               args</span><br><span class="line">  #22 = Utf8               [Ljava/lang/String;</span><br><span class="line">  #23 = Utf8               SourceFile</span><br><span class="line">  #24 = Utf8               TestJvm.java</span><br><span class="line">  #25 = NameAndType        #12:#13        // &quot;&lt;init&gt;&quot;:()V</span><br><span class="line">  #26 = Class              #36            // java/lang/System</span><br><span class="line">  #27 = NameAndType        #37:#38        // out:Ljava/io/PrintStream;</span><br><span class="line">  #28 = Utf8               get message = %s</span><br><span class="line">  #29 = Utf8               java/lang/Object</span><br><span class="line">  #30 = Utf8               world/ismyfree/demo/TestJvm</span><br><span class="line">  #31 = Utf8               hello java</span><br><span class="line">  #32 = Class              #39            // java/lang/String</span><br><span class="line">  #33 = NameAndType        #40:#41        // format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span><br><span class="line">  #34 = Class              #42            // java/io/PrintStream</span><br><span class="line">  #35 = NameAndType        #43:#44        // println:(Ljava/lang/String;)V</span><br><span class="line">  #36 = Utf8               java/lang/System</span><br><span class="line">  #37 = Utf8               out</span><br><span class="line">  #38 = Utf8               Ljava/io/PrintStream;</span><br><span class="line">  #39 = Utf8               java/lang/String</span><br><span class="line">  #40 = Utf8               format</span><br><span class="line">  #41 = Utf8               (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span><br><span class="line">  #42 = Utf8               java/io/PrintStream</span><br><span class="line">  #43 = Utf8               println</span><br><span class="line">  #44 = Utf8               (Ljava/lang/String;)V</span><br><span class="line">&#123;</span><br><span class="line">  public static final java.lang.String HELLO_JAVA;</span><br><span class="line">    descriptor: Ljava/lang/String;</span><br><span class="line">    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL</span><br><span class="line">    ConstantValue: String hello java</span><br><span class="line"></span><br><span class="line">  public world.ismyfree.demo.TestJvm();</span><br><span class="line">    descriptor: ()V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=1, locals=1, args_size=1</span><br><span class="line">         0: aload_0</span><br><span class="line">         1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">         4: return</span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line 3: 0</span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            0       5     0  this   Lworld/ismyfree/demo/TestJvm;</span><br><span class="line"></span><br><span class="line">  public static void main(java.lang.String[]);</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line">    flags: ACC_PUBLIC, ACC_STATIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=6, locals=1, args_size=1</span><br><span class="line">         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">         3: ldc           #3                  // String get message = %s</span><br><span class="line">         5: iconst_1</span><br><span class="line">         6: anewarray     #4                  // class java/lang/Object</span><br><span class="line">         9: dup</span><br><span class="line">        10: iconst_0</span><br><span class="line">        11: ldc           #6                  // String hello java</span><br><span class="line">        13: aastore</span><br><span class="line">        14: invokestatic  #7                  // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span><br><span class="line">        17: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">        20: return</span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line 8: 0</span><br><span class="line">        line 9: 20</span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            0      21     0  args   [Ljava/lang/String;</span><br><span class="line">&#125;</span><br><span class="line">SourceFile: &quot;TestJvm.java&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ASM开发"><a href="#ASM开发" class="headerlink" title="ASM开发"></a>ASM开发</h2><h3 id="认识ASM"><a href="#认识ASM" class="headerlink" title="认识ASM"></a>认识ASM</h3><ul>
+<li><p>ASM是一个Java字节码操纵框架，它能用来动态生成类或者增强既有类的功能</p>
+</li>
+<li><p>ASM能直接产生二进制class文件，也可以在类被加入虚拟机之前动态改变类行为，ASM类文件读入信息后，能够改变类行为，分析类信息，甚至能根据要求生成新类。</p>
+</li>
+<li><p>目前许多框架如cglib、Hibernate、Spring都直接或间接地使用ASM操作字节码</p>
+</li>
+</ul>
+<h3 id="ASM编程模型"><a href="#ASM编程模型" class="headerlink" title="ASM编程模型"></a>ASM编程模型</h3><ul>
+<li><p>Core API：提供了基于事件形式的编程模型。该模型不需要一次性将整个类的结构读取到内存中，因此这种方式更快，需要更少的内存，但这种编程方式难度较大。</p>
+</li>
+<li><p>Tree API：提供了基于树形的编程模型。该模型需要一次性将一个类的完整结构全部读取到内存当中，所以这种方法需要更多的内存，这种编程方式较简单。</p>
+</li>
+</ul>
+<h3 id="ASM核心API"><a href="#ASM核心API" class="headerlink" title="ASM核心API"></a>ASM核心API</h3><h4 id="ASM的Core-API"><a href="#ASM的Core-API" class="headerlink" title="ASM的Core API"></a>ASM的Core API</h4><ul>
+<li><p>ASM Core API种操纵字节码的功能基于ClassVisitor接口。这个接口种的每个方法对应了class中的每一项。</p>
+</li>
+<li><p>ASM提供了三个基于ClassVisitor接口的类实现class文件的生成和转换</p>
+<ul>
+<li><p>1.ClassReader：ClassReader解析一个类的class字节码</p>
+</li>
+<li><p>2.ClassAdapter：ClassAdapter是ClassVisitor的实现类，实现要变化的功能</p>
+</li>
+<li><p>3.ClassWriter：ClassWriter也是ClassVisitor的实现类，可以用来输出要变化的字节码</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ASMifier"><a href="#ASMifier" class="headerlink" title="ASMifier"></a>ASMifier</h4><ul>
+<li><p>1.ASM给我们提供了ASMifier工具帮助开发，可以使用ASMifier工具生成ASM结构来对比</p>
+</li>
+<li><p>2.工具Maven依赖</p>
+</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.ow2.asm&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;asm&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.ow2.asm&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;asm-util&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3.idea使用maven命令将jar包copy到当前项目的dependency目录方便调试</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn dependency:copy-dependencies</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4.执行命令使用工具解析字节码</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp .:../dependency/asm-9.2.jar:../dependency/asm-util-9.2.jar org.objectweb.asm.util.ASMifier world.ismyfree.jvm.asm.CC</span><br></pre></td></tr></table></figure>
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果本文对你有所帮助，请赏我1个铜板买喵粮自己吃，您的支持是我最大的动力！！！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2021/03/01/mysql查询时间日期转换/" rel="next" title="mysql查询时间日期转换"><i class="fas fa-angle-left"></i><span class="nav-title">mysql查询时间日期转换</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2021/09/18/使用Golang实现一个Web服务器/" rel="prev" title="使用Golang实现一个Web服务器"><span class="nav-title">使用Golang实现一个Web服务器</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/tanliyuan_katong.jpg" alt="Tan Liyuan">
+  
+  <h1 class="author-name">Tan Liyuan</h1>
+  <h2 class="author-description">一个热爱生活的小男孩</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">31</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">12</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">16</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#认识JVM"><span class="toc-text">认识JVM</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#class文件格式"><span class="toc-text">class文件格式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#class文件格式说明"><span class="toc-text">class文件格式说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#ASM开发"><span class="toc-text">ASM开发</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#认识ASM"><span class="toc-text">认识ASM</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ASM编程模型"><span class="toc-text">ASM编程模型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ASM核心API"><span class="toc-text">ASM核心API</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#ASM的Core-API"><span class="toc-text">ASM的Core API</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#ASMifier"><span class="toc-text">ASMifier</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:15803657214@163.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/developertanliyuan/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/577007836" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://sh.alynx.one/" target="_blank">喵's StackHarbor</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="http://www.dyboy.cn/" target="_blank">第一资源网</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://info.liuwenhao.store/" target="_blank">刘文豪的个人主页</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Tan Liyuan</span><span class="year"><i class="far fa-copyright"></i>2022</span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

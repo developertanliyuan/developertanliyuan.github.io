@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color>
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="DeveloperTanliyuan" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/[object Object].css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>spring学习笔记 | DeveloperTanliyuan - 编程开发、分享生活、分享技术</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">DeveloperTanliyuan</a></h1>
+        <h2 class="subtitle">编程开发、分享生活、分享技术</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/dog.gif" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i>favicons<span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2022/05/12/spring学习笔记/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Tan Liyuan">
+       <meta itemprop="description" content="一个热爱生活的小男孩">
+       <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">spring学习笔记</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2022-05-12T17:15:24+08:00">2022-05-12 17:15:24</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="容器接口"><a href="#容器接口" class="headerlink" title="容器接口"></a>容器接口</h1><h2 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h2><h3 id="什么是BeanFactory"><a href="#什么是BeanFactory" class="headerlink" title="什么是BeanFactory"></a>什么是BeanFactory</h3><p>1.它是ApplicationContext的父接口</p>
+<p>2.它才是Spring的核心容器，主要的ApplicationContext实现都【组合】了它的功能，BeanFactory是ApplicationContext的成员变量</p>
+<h3 id="BeanFactory能干啥"><a href="#BeanFactory能干啥" class="headerlink" title="BeanFactory能干啥"></a>BeanFactory能干啥</h3><p>1.表面上只有getBean方法</p>
+<p>2.实际上，控制反转、基本的依赖注入，制止Bean的生命周期的各种功能，都由它的实现类提供例如DefaultListableBeanFactory，继承关系如下</p>
+<p><img src="/images/pasted-1.png" alt="DefaultListableBeanFactory继承关系图"></p>
+<h4 id="DefaultListableBeanFactory"><a href="#DefaultListableBeanFactory" class="headerlink" title="DefaultListableBeanFactory"></a>DefaultListableBeanFactory</h4><h5 id="DefaultSingletonBeanRegistry"><a href="#DefaultSingletonBeanRegistry" class="headerlink" title="DefaultSingletonBeanRegistry"></a>DefaultSingletonBeanRegistry</h5><p>该类有一个如下成员变量<br>private final Map&lt;String, Object&gt; singletonObjects = new ConcurrentHashMap(256);<br>是私有的，我们可以通过反射的方式拿到它的成员变量</p>
+<h2 id="ApplicationContext有哪些扩展功能"><a href="#ApplicationContext有哪些扩展功能" class="headerlink" title="ApplicationContext有哪些扩展功能"></a>ApplicationContext有哪些扩展功能</h2><p>org.springframework.boot.SpringApplication#run(java.lang.Class&lt;?&gt;, java.lang.String…)方法返回org.springframework.context.ConfigurableApplicationContext，我们来看一下他的接口继承关系</p>
+<p><img src="/images/pasted-0.png" alt="ConfigurableApplicationContext继承关系图"></p>
+<p>可以看出ApplicationContext间接继承了BeanFactory</p>
+<p>ApplicationContext对BeanFactory进行了一些扩展,其中主要有(MessageSource、ResourcePatternResolver、ApplicationEventPublisher、EnviromentCapable)</p>
+<h3 id="MessageSource"><a href="#MessageSource" class="headerlink" title="MessageSource"></a>MessageSource</h3><p>MessageSource提供了处理国际化的能力,国际化字典我们一半存储在resource目录下的messages开头的properties文件</p>
+<p><img src="/images/pasted-2.png" alt="resource示例"></p>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ConfigurableApplicationContext context = SpringApplication.run(MarketServerApplication.class);</span><br><span class="line">String hi = context.getMessage(<span class="string">"hi"</span>, <span class="keyword">null</span>, Locale.CHINA);</span><br><span class="line">System.out.println(hi);</span><br></pre></td></tr></table></figure>
+
+<h3 id="ResourcePatternResolver"><a href="#ResourcePatternResolver" class="headerlink" title="ResourcePatternResolver"></a>ResourcePatternResolver</h3><p>ResourcePatternResolver资源文件的处理能力，如application.properties</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ConfigurableApplicationContext context = SpringApplication.run(MarketServerApplication.class);</span><br><span class="line">Resource[] resources = context.getResources(&quot;classpath*:META-INF/spring.factories&quot;);</span><br><span class="line">for (Resource resource : resources) &#123;</span><br><span class="line">	System.out.println(resource);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">URL [jar:file:/Users/anakin/develop/mvn-repository/org/springframework/boot/spring-boot/2.3.12.RELEASE/spring-boot-2.3.12.RELEASE.jar!/META-INF/spring.factories]</span><br><span class="line">URL [jar:file:/Users/anakin/develop/mvn-repository/org/springframework/boot/spring-boot-autoconfigure/2.3.12.RELEASE/spring-boot-autoconfigure-2.3.12.RELEASE.jar!/META-INF/spring.factories]</span><br><span class="line">URL [jar:file:/Users/anakin/develop/mvn-repository/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE.jar!/META-INF/spring.factories]</span><br></pre></td></tr></table></figure>
+
+<h3 id="EnviromentCapable"><a href="#EnviromentCapable" class="headerlink" title="EnviromentCapable"></a>EnviromentCapable</h3><p>EnviromentCapable提供配置信息查看能力，可以是配置文件，也可以是环境变量（不区分大小写）等。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(context.getEnviroment().getProperty(&quot;java_home&quot;));</span><br><span class="line">System.out.println(context.getEnviroment().getProperty(&quot;server.port&quot;));</span><br></pre></td></tr></table></figure>
+
+<h3 id="ApplicationEventPublisher"><a href="#ApplicationEventPublisher" class="headerlink" title="ApplicationEventPublisher"></a>ApplicationEventPublisher</h3><p>ApplicationEventPublisher提供事件发布的能力</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Event event = new Event();</span><br><span class="line">applicationContext.publishEvent(event);</span><br></pre></td></tr></table></figure>
+
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@EventListener</span><br><span class="line">public void listenEvent(Event event)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器实现"><a href="#容器实现" class="headerlink" title="容器实现"></a>容器实现</h2><h3 id="BeanFactory实现的特点"><a href="#BeanFactory实现的特点" class="headerlink" title="BeanFactory实现的特点"></a>BeanFactory实现的特点</h3><blockquote>
+<p>BeanFactory不会主动做的事情</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>不会主动调用BeanFactory后处理器</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>不会主动添加Bean后处理器</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>不会主动初始化单例对象</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>不会解析BeanFactory，还不会解析${}与#{}</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Bean后处理器有排序的逻辑</p>
+</blockquote>
+<h4 id="DefaultListableBeanFactory-1"><a href="#DefaultListableBeanFactory-1" class="headerlink" title="DefaultListableBeanFactory"></a>DefaultListableBeanFactory</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">    DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();</span><br><span class="line">    // bean 的定义（class,scope,初始化,销毁)</span><br><span class="line">    AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(Config.class).setScope(&quot;singleton).getBeanDefinition();</span><br><span class="line">    // 给BeanFactory添加一些常用的后置处理器(如@Configuration、@Bean等等扩展功能)</span><br><span class="line">    AnnotationConfigUtils.registerAnnotationConfigProcessors(beanFactory);</span><br><span class="line">    // 执行Bean工厂后置处理器</span><br><span class="line">    Map&lt;String, BeanFactoryPostProcessor&gt; beansOfType = beanFactory.getBeansOfType(BeanFactoryPostProcessor.class);</span><br><span class="line">    beansOfType.values().stream().forEach(beanFactoryPostProcessor -&gt; beanFactoryPostProcessor.postProcessBeanFactory(context.getBeanFactory()));</span><br><span class="line">    // 添加Bean后置处理器与bean工厂的联系（针对Bean生命周期的各个阶段提供扩展，例如@Autowired、@Resource等）</span><br><span class="line">    beanFactory.getBeansOfType(BeanPostProcessor.class).values().forEach(beanFactory::addBeanPostProcessor);</span><br><span class="line">    // beanFactory默认延迟创建对象，我们可以执行下面的方法提前创建对象</span><br><span class="line">    beanFactory.preInstantiateSingletons();</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上添加的后置处理器如下(Bean工厂后置处理器及Bean后置处理器都有)</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.annotation.internalConfigurationAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalAutowiredAnnotationProcessor</span><br><span class="line">org.springframework.context.annotation.internalCommonAnnotationProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerProcessor</span><br><span class="line">org.springframework.context.event.internalEventListenerFactory</span><br></pre></td></tr></table></figure>
+
+<p>常见的Bean工厂后置处理器</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.annotation.internalConfigurationAnnotationProcessor------&gt;org.springframework.context.annotation.ConfigurationClassPostProcessor@2b27d5d3</span><br><span class="line">org.springframework.context.event.internalEventListenerProcessor------&gt;org.springframework.context.event.EventListenerMethodProcessor@12115c28</span><br><span class="line">propertySourcesPlaceholderConfigurer------&gt;org.springframework.context.support.PropertySourcesPlaceholderConfigurer@cc3fc5c</span><br><span class="line">preserveErrorControllerTargetClassPostProcessor------&gt;org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$PreserveErrorControllerTargetClassPostProcessor@2aac60b</span><br><span class="line">cn.hutool.extra.spring.SpringUtil------&gt;cn.hutool.extra.spring.SpringUtil@173602c0</span><br><span class="line">org.springframework.cloud.autoconfigure.RefreshAutoConfiguration$RefreshScopeBeanDefinitionEnhancer------&gt;org.springframework.cloud.autoconfigure.RefreshAutoConfiguration$RefreshScopeBeanDefinitionEnhancer@fdeec12</span><br><span class="line">refreshScope------&gt;org.springframework.cloud.context.scope.refresh.RefreshScope@de579ff</span><br></pre></td></tr></table></figure>
+
+<p>常见的Bean后置处理器</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.annotation.internalAutowiredAnnotationProcessor------&gt;org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor@6fe55fcf</span><br><span class="line">org.springframework.context.annotation.internalCommonAnnotationProcessor------&gt;org.springframework.context.annotation.CommonAnnotationBeanPostProcessor@4d1f6e1c</span><br><span class="line">org.springframework.aop.config.internalAutoProxyCreator------&gt;proxyTargetClass=true; optimize=false; opaque=false; exposeProxy=false; frozen=false</span><br><span class="line">org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor------&gt;org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor@3431cb1f</span><br><span class="line">webServerFactoryCustomizerBeanPostProcessor------&gt;org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor@42c9f2cd</span><br><span class="line">errorPageRegistrarBeanPostProcessor------&gt;org.springframework.boot.web.server.ErrorPageRegistrarBeanPostProcessor@797c67c</span><br><span class="line">methodValidationPostProcessor------&gt;proxyTargetClass=true; optimize=false; opaque=false; exposeProxy=false; frozen=false</span><br><span class="line">dataSourceInitializerPostProcessor------&gt;org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerPostProcessor@31ce271c</span><br><span class="line">org.springframework.amqp.rabbit.config.internalRabbitListenerAnnotationProcessor------&gt;org.springframework.amqp.rabbit.annotation.RabbitListenerAnnotationBeanPostProcessor@b1d7b09</span><br><span class="line">healthEndpointGroupsBeanPostProcessor------&gt;org.springframework.boot.actuate.autoconfigure.health.HealthEndpointConfiguration$HealthEndpointGroupsBeanPostProcessor@64faf3d</span><br><span class="line">meterRegistryPostProcessor------&gt;org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryPostProcessor@3f523dae</span><br><span class="line">rabbitConnectionFactoryMetricsPostProcessor------&gt;org.springframework.boot.actuate.autoconfigure.metrics.amqp.RabbitConnectionFactoryMetricsPostProcessor@7fe40b9f</span><br><span class="line">persistenceExceptionTranslationPostProcessor------&gt;proxyTargetClass=true; optimize=false; opaque=false; exposeProxy=false; frozen=false</span><br><span class="line">projectingArgumentResolverBeanPostProcessor------&gt;org.springframework.data.web.config.ProjectingArgumentResolverRegistrar$ProjectingArgumentResolverBeanPostProcessor@1f41f259</span><br><span class="line">configurationPropertiesBeans------&gt;org.springframework.cloud.context.properties.ConfigurationPropertiesBeans@648c80cb</span><br><span class="line">org.springframework.context.annotation.internalAsyncAnnotationProcessor------&gt;proxyTargetClass=false; optimize=false; opaque=false; exposeProxy=false; frozen=false</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pasted-3.png" alt="一些Bean工厂后置处理器的实现类图"></p>
+<p><img src="/images/pasted-4.png" alt="一些Bean后置处理器的实现类图"></p>
+<h3 id="ApplicationContext的常见实现与特点"><a href="#ApplicationContext的常见实现与特点" class="headerlink" title="ApplicationContext的常见实现与特点"></a>ApplicationContext的常见实现与特点</h3><p><img src="/images/pasted-5.png" alt="ApplicationContext实现关系图"></p>
+<h3 id="内嵌容器注册DispatcherServlet"><a href="#内嵌容器注册DispatcherServlet" class="headerlink" title="内嵌容器注册DispatcherServlet"></a>内嵌容器注册DispatcherServlet</h3>
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果本文对你有所帮助，请赏我1个铜板买喵粮自己吃，您的支持是我最大的动力！！！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2021/09/18/使用Golang实现一个Web服务器/" rel="next" title="使用Golang实现一个Web服务器"><i class="fas fa-angle-left"></i><span class="nav-title">使用Golang实现一个Web服务器</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/tanliyuan_katong.jpg" alt="Tan Liyuan">
+  
+  <h1 class="author-name">Tan Liyuan</h1>
+  <h2 class="author-description">一个热爱生活的小男孩</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">31</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">12</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">16</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#容器接口"><span class="toc-text">容器接口</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#BeanFactory"><span class="toc-text">BeanFactory</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#什么是BeanFactory"><span class="toc-text">什么是BeanFactory</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#BeanFactory能干啥"><span class="toc-text">BeanFactory能干啥</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#DefaultListableBeanFactory"><span class="toc-text">DefaultListableBeanFactory</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#DefaultSingletonBeanRegistry"><span class="toc-text">DefaultSingletonBeanRegistry</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#ApplicationContext有哪些扩展功能"><span class="toc-text">ApplicationContext有哪些扩展功能</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#MessageSource"><span class="toc-text">MessageSource</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ResourcePatternResolver"><span class="toc-text">ResourcePatternResolver</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#EnviromentCapable"><span class="toc-text">EnviromentCapable</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ApplicationEventPublisher"><span class="toc-text">ApplicationEventPublisher</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#容器实现"><span class="toc-text">容器实现</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#BeanFactory实现的特点"><span class="toc-text">BeanFactory实现的特点</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#DefaultListableBeanFactory-1"><span class="toc-text">DefaultListableBeanFactory</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ApplicationContext的常见实现与特点"><span class="toc-text">ApplicationContext的常见实现与特点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#内嵌容器注册DispatcherServlet"><span class="toc-text">内嵌容器注册DispatcherServlet</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:15803657214@163.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/developertanliyuan/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/577007836" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://sh.alynx.one/" target="_blank">喵's StackHarbor</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="http://www.dyboy.cn/" target="_blank">第一资源网</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://info.liuwenhao.store/" target="_blank">刘文豪的个人主页</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Tan Liyuan</span><span class="year"><i class="far fa-copyright"></i>2022</span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

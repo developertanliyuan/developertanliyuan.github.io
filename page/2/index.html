@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color>
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="DeveloperTanliyuan" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/[object Object].css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>DeveloperTanliyuan - 编程开发、分享生活、分享技术</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">DeveloperTanliyuan</a></h1>
+        <h2 class="subtitle">编程开发、分享生活、分享技术</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/dog.gif" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i>favicons<span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+
+<div id="index" class="index page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/11/23/Keepalived实现nginx双j机主备或双机热备高可用/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/11/23/Keepalived实现nginx双j机主备或双机热备高可用/" itemprop="url">Keepalived实现nginx双机主备或双机热备高可用</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-23T14:55:30+08:00">2020-11-23 14:55:30</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="HA高可用"><a href="#HA高可用" class="headerlink" title="HA高可用"></a>HA高可用</h1><p><img src="/images/img_45.png" alt="HA高可用架构图"></p>
+<h1 id="Keepalived介绍"><a href="#Keepalived介绍" class="headerlink" title="Keepalived介绍"></a>Keepalived介绍</h1><blockquote>
+<p>解决单点故障</p>
+</blockquote>
+<blockquote>
+<p>组件免费</p>
+</blockquote>
+<blockquote>
+<p>可以实现高可用HA机制</p>
+</blockquote>
+<blockquote>
+<p>基于VRRP协议</p>
+<blockquote>
+<p>检测nginx状态，发生故障切换到备用机，还可邮件通知管理员。<br>主机修复完成可以通过keepalived自动加入内网，重新成为主机，备用机会让主机继续工作<br>一切过程由keepalived处理，人工干预的只有修复出故障的nginx节点</p>
+</blockquote>
+</blockquote>
+<h2 id="VRRP协议"><a href="#VRRP协议" class="headerlink" title="VRRP协议"></a>VRRP协议</h2><blockquote>
+<p>Virtual Router Redundance Protocol（虚拟路由冗余协议）</p>
+</blockquote>
+<blockquote>
+<p>解决内网单机故障的路由协议</p>
+</blockquote>
+<blockquote>
+<p>构建有多个路由器 MASTER BACKUP</p>
+</blockquote>
+<blockquote>
+<p>虚拟IP - VIP （Virtual IP Address）</p>
+</blockquote>
+<h2 id="keepalive双机主备原理"><a href="#keepalive双机主备原理" class="headerlink" title="keepalive双机主备原理"></a>keepalive双机主备原理</h2><p><img src="/images/img_46.png" alt="KeepAlived双机主备原理"></p>
+<blockquote>
+<p>用户请求虚拟ip虚拟ip与nginx绑定到一起。</p>
+</blockquote>
+<blockquote>
+<p>由于keepalived会进行心跳检测nginx挂了后虚拟ip会与我们的备用nginx绑定到一起。</p>
+</blockquote>
+<blockquote>
+<p>主备节点配置需要保持一致}（如果备用节点机器配置低于主节点机器可能发生瞬间宕机的情况）</p>
+</blockquote>
+<h1 id="安装Keepalived"><a href="#安装Keepalived" class="headerlink" title="安装Keepalived"></a>安装Keepalived</h1><blockquote>
+<p>安装libnl/libnl-3依赖</p>
+</blockquote>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install libnl libnl-devel</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>打开<a href="https://www.keepalived.org/" target="_blank" rel="noopener">keepalived官网</a>选择download选择响应的版本进行下载并上传到服务器。</p>
+</blockquote>
+<blockquote>
+<p>解压安装包</p>
+</blockquote>
+<blockquote>
+<p>进入目录执行命令进行配置生成配置文件</p>
+</blockquote>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/keepalived --sysconf=/etc</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>各个参数代表的含义</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–prefix</td>
+<td>指定keepalived安装位置</td>
+</tr>
+<tr>
+<td>–sysconf</td>
+<td>核心配置文件路径(要是不设置到这个目录下面的话后面日志会报一个错在/etc目录下找不到keepalived,核心配置文件路径为/etc/keepalived/keepalived.conf)</td>
+</tr>
+</tbody></table>
+<h1 id="修改核心配置文件"><a href="#修改核心配置文件" class="headerlink" title="修改核心配置文件"></a>修改核心配置文件</h1><blockquote>
+<p>主节点配置文件</p>
+</blockquote>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">global_defs &#123;</span><br><span class="line">    # 路由id：当前安装keepalived的节点主机标识符，保证全局唯一</span><br><span class="line">    router_id keep_001</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    # 表示状态是MASTER主机还是备用机BACKUP</span><br><span class="line">    state MASTER</span><br><span class="line">    # 该实例绑定的网卡（可以使用 ip addr 执行查看）</span><br><span class="line">    interface ens33</span><br><span class="line">    # 虚拟路由Id，保证主备节点一致即可</span><br><span class="line">    virtual_router_id 101</span><br><span class="line">    # 权重，master权重一般高于backup，如果有多个，那就是选举，谁的权重高，谁就当选</span><br><span class="line">    priority 100</span><br><span class="line">    # 主备之间同步检查时间间隔，单位秒</span><br><span class="line">    advert_int 1</span><br><span class="line">    # 认证权限密码，防止非法节点进入</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 1111</span><br><span class="line">    &#125;</span><br><span class="line">    # 虚拟出来的ip，可以有多个（vip）</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.88.88</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>备用节点配置文件</p>
+</blockquote>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">global_defs &#123;</span><br><span class="line">    # 路由id：当前安装keepalived的节点主机标识符，保证全局唯一</span><br><span class="line">    router_id keep_002</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    # 表示状态是MASTER主机还是备用机BACKUP</span><br><span class="line">    state BACKUP</span><br><span class="line">    # 该实例绑定的网卡（可以使用 ip addr 执行查看）</span><br><span class="line">    interface ens33</span><br><span class="line">    # 虚拟路由Id，保证主备节点一致即可</span><br><span class="line">    virtual_router_id 101</span><br><span class="line">    # 权重，master权重一般高于backup，如果有多个，那就是选举，谁的权重高，谁就当选</span><br><span class="line">    priority 80</span><br><span class="line">    # 主备之间同步检查时间间隔，单位秒</span><br><span class="line">    advert_int 1</span><br><span class="line">    # 认证权限密码，防止非法节点进入</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 1111</span><br><span class="line">    &#125;</span><br><span class="line">    # 虚拟出来的ip，可以有多个（vip）</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.88.88</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/11/13/linux添加定时任务/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/11/13/linux添加定时任务/" itemprop="url">linux添加定时任务</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-13T20:30:00+08:00">2020-11-13 20:30:00</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="安装定时任务"><a href="#安装定时任务" class="headerlink" title="安装定时任务"></a>安装定时任务</h1><ul>
+<li>安装定时任务(centos6或centos7已经子弹)</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install crontabs</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看当前已经存在的定时任务"><a href="#查看当前已经存在的定时任务" class="headerlink" title="查看当前已经存在的定时任务"></a>查看当前已经存在的定时任务</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+
+<h1 id="编辑定时任务"><a href="#编辑定时任务" class="headerlink" title="编辑定时任务"></a>编辑定时任务</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<h1 id="编辑并添加一行新的任务"><a href="#编辑并添加一行新的任务" class="headerlink" title="编辑并添加一行新的任务"></a>编辑并添加一行新的任务</h1><ul>
+<li>前面是表达式,后面是要定时执行的脚本<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * /usr/local/nginx/sbin/cut_my_log.sh</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="重启定时任务"><a href="#重启定时任务" class="headerlink" title="重启定时任务"></a>重启定时任务</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service crond restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="定时任务常用命令"><a href="#定时任务常用命令" class="headerlink" title="定时任务常用命令"></a>定时任务常用命令</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>service crond restart</td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td>service crond stop</td>
+<td>关闭服务</td>
+</tr>
+<tr>
+<td>service crond restart</td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td>service crond reload</td>
+<td>重新载入配置</td>
+</tr>
+<tr>
+<td>crontab -e</td>
+<td>编辑任务</td>
+</tr>
+<tr>
+<td>crontab -l</td>
+<td>查看任务列表</td>
+</tr>
+</tbody></table>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/定时任务/" rel="tag"><i class="fas fa-tags"></i>定时任务</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/11/12/Nginx核心配置及进程事件模型/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/11/12/Nginx核心配置及进程事件模型/" itemprop="url">Nginx核心配置及进程事件模型</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-12T16:17:39+08:00">2020-11-12 16:17:39</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="nginx默认配置文件"><a href="#nginx默认配置文件" class="headerlink" title="nginx默认配置文件"></a>nginx默认配置文件</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line">#user可以配置文件目录访问的用户</span><br><span class="line">#user  nobody;</span><br><span class="line"># worker_processes可以指定工作进程的数量</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">#error_log  logs/error.log;</span><br><span class="line">#error_log  logs/error.log  notice;</span><br><span class="line">#error_log  logs/error.log  info;</span><br><span class="line"></span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line">#事件处理</span><br><span class="line">events &#123;</span><br><span class="line">    use epoll;						#默认使用epoll</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">    #每个worker工作进程允许连接客户端的最大连接数（可以配置）</span><br><span class="line">    #nginx之所以能处理高并发就是因为这里及nginx的事件处理模型</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    #include包含导入外部文件（mime.types在config目录下，包含了平时请求包含的类型），提高可读性</span><br><span class="line">    #我们自己通过include导入server配置也是没有问题的(导入配置一定要记得加分号)</span><br><span class="line">    include       mime.types;</span><br><span class="line">    #默认的type类型</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #日志格式的配置（默认自带日志格式不需要配置/如果需要定制化日志格式可以对其进行配置）</span><br><span class="line">    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line">    </span><br><span class="line">    #http请求日志路径，同时代表我们nginx的性能也得到了提升</span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line">    #打开sendfile可开启文件的高效传输</span><br><span class="line">    sendfile        on;</span><br><span class="line">    #开启sendfile才可以开启tcp_nopush,表示数据包累积到一定大小过后再开始发送，提升文件传输的效率（类比外卖小哥打包送餐放到集装箱提高工作效率）/不开启则使用同步阻塞的方式，效率是极其低下的。</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout客户端连接服务器的超时时间（以秒为单位），每个客户端连接服务器可以保持连接的时间</span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    </span><br><span class="line">    #内容传输进行压缩，节约服务器带宽的开销，不过压缩肯定会消耗服务器的性能</span><br><span class="line">    #gzip  on;</span><br><span class="line">    </span><br><span class="line">    #限制最小压缩，文件内容小于1个字节就不会对其进行压缩</span><br><span class="line">    #gzip_min_length 1;</span><br><span class="line">    </span><br><span class="line">    #定义压缩的级别（压缩比，文件越大，压缩越多，但是cpu消耗就更多）</span><br><span class="line">    #gzip_min_lenght 3;</span><br><span class="line">    </span><br><span class="line">    #定义压缩文件的类型</span><br><span class="line">    #gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/json</span><br><span class="line"></span><br><span class="line">    #为虚拟主机配置监听信息（可以配置多块）</span><br><span class="line">    server &#123;</span><br><span class="line">        #监听的端口号</span><br><span class="line">        listen       80;</span><br><span class="line">        #服务器名称（可以是备案过后域名或ip或者是localhost）</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        #路由，找到对应的页面</span><br><span class="line">        location / &#123;</span><br><span class="line">            #资源路径（可以是绝对路径也可以是相对路径，这里是相对路径）</span><br><span class="line">            root   html;</span><br><span class="line">            #根路径默认访问的资源</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">			</span><br><span class="line">        #错误页面展示</span><br><span class="line">        #error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">        #发生50x错误的时候重定向到相关错误页面</span><br><span class="line">        # redirect server error pages to the static page /50x.html</span><br><span class="line">        #</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span><br><span class="line">        #</span><br><span class="line">        #location ~ \.php$ &#123;</span><br><span class="line">        #    proxy_pass   http://127.0.0.1;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span><br><span class="line">        #</span><br><span class="line">        #location ~ \.php$ &#123;</span><br><span class="line">        #    root           html;</span><br><span class="line">        #    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">        #    fastcgi_index  index.php;</span><br><span class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span><br><span class="line">        #    include        fastcgi_params;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">        # deny access to .htaccess files, if Apache&apos;s document root</span><br><span class="line">        # concurs with nginx&apos;s one</span><br><span class="line">        #</span><br><span class="line">        #location ~ /\.ht &#123;</span><br><span class="line">        #    deny  all;</span><br><span class="line">        #&#125;</span><br><span class="line">        #以上配置多个资源路径</span><br><span class="line">        </span><br><span class="line">        #以别名形式配置路径(隐藏真实资源路径)</span><br><span class="line">        #location /resource &#123;</span><br><span class="line">        #    #将资源路径resource映射到/xxx/xxx/xxx/resource路径下</span><br><span class="line">        #    alias /xxx/xxx/xxx/resource;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    #配置上游服务器</span><br><span class="line">    upstream tomcats &#123;</span><br><span class="line">        #默认使用轮询策略，添加weight根据权重选择执行的机器</span><br><span class="line">        server 192.168.1.101:8080 weight=1;</span><br><span class="line">        server 192.168.1.102:8080;</span><br><span class="line">        server 192.168.1.103:8080;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       8000;</span><br><span class="line">    #    listen       somename:8080;</span><br><span class="line">    #    server_name  somename  alias  another.alias;</span><br><span class="line">    #允许跨域请求的域，*代表所有</span><br><span class="line">    #    add_header &apos;Access-Control-Allow-Origin&apos; *;</span><br><span class="line">    #允许带上cookie请求</span><br><span class="line">    #    add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">    #允许请求的方法get/post/put/delete</span><br><span class="line">    #    add_header &apos;Access-Control-Allow-Method&apos; *;</span><br><span class="line">    #允许请求的header</span><br><span class="line">    #    add_header &apos;Access-Control-Allow-Header&apos; *;</span><br><span class="line">    #对源站点验证(静态资源防盗链)</span><br><span class="line">    #valid_referers *.xxx.com;</span><br><span class="line">    #if($invalid_refer) &#123;</span><br><span class="line">    #    return 404;</span><br><span class="line">    #&#125;</span><br><span class="line">    #    add_header &apos;Access-Control-Allow-Header&apos; *;</span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #        #静态资源访问缓存过期时间，文件发生更改也会不使用缓存。</span><br><span class="line">    #        expires 10s;</span><br><span class="line">    #        #指定缓存过期时间为22点30分</span><br><span class="line">    #        expires @22h30m</span><br><span class="line">    #        #缓存在1个小时之前已经过期</span><br><span class="line">    #        expires -1h</span><br><span class="line">    #        #不设置缓存</span><br><span class="line">    #        expires epoch</span><br><span class="line">    #        #关闭nginx缓存（默认），浏览器还是有缓存机制</span><br><span class="line">    #        expires off</span><br><span class="line">    #        #最大过期时间（相当于永不过期）</span><br><span class="line">    #        expires max</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # HTTPS server</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       443 ssl;</span><br><span class="line">    #    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    #    ssl_certificate      cert.pem;</span><br><span class="line">    #    ssl_certificate_key  cert.key;</span><br><span class="line"></span><br><span class="line">    #    ssl_session_cache    shared:SSL:1m;</span><br><span class="line">    #    ssl_session_timeout  5m;</span><br><span class="line"></span><br><span class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</span><br><span class="line">    #    ssl_prefer_server_ciphers  on;</span><br><span class="line"></span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="nginx配置结构"><a href="#nginx配置结构" class="headerlink" title="nginx配置结构"></a>nginx配置结构</h1><p><img src="/images/QQDVHSPWSN.png" alt="nginx配置结构"></p>
+<h1 id="校验nginx配置文件是否正确"><a href="#校验nginx配置文件是否正确" class="headerlink" title="校验nginx配置文件是否正确"></a>校验nginx配置文件是否正确</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -t</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改配置文件过后需要重新装载nginx"><a href="#修改配置文件过后需要重新装载nginx" class="headerlink" title="修改配置文件过后需要重新装载nginx"></a>修改配置文件过后需要重新装载nginx</h1><ul>
+<li>重新装载nginx的命令如下</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<h1 id="Nginx进程模型"><a href="#Nginx进程模型" class="headerlink" title="Nginx进程模型"></a>Nginx进程模型</h1><h2 id="查看nginx进程"><a href="#查看nginx进程" class="headerlink" title="查看nginx进程"></a>查看nginx进程</h2><ul>
+<li>查看nginx进程命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep nginx</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>命令执行结果</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root       4640      1  0 13:59 ?        00:00:00 nginx: master process ./nginx</span><br><span class="line">nobody     4641   4640  0 13:59 ?        00:00:00 nginx: worker process</span><br><span class="line">root       4723   4668  0 15:22 pts/0    00:00:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure>
+
+<p>根据命令执行结果我们可以看到一共是有两个nginx的进程，第1个是nginx:master主进程，第2个是nginx:worker工作进程，实际上我们是可以通过配置文件指定nginx:worker的工作进程的数量的，配置文件属性如下。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  1;	#指定工作进程的数量</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx进程模型"><a href="#nginx进程模型" class="headerlink" title="nginx进程模型"></a>nginx进程模型</h2><ul>
+<li><p>nginx:master进程是主进程，对nginx:worker进程进行管理</p>
+</li>
+<li><p>nginx:worker进程是工作进程，为nginx:master进程服务</p>
+</li>
+<li><p>nginx:master会发送信号给nginx:worker进程，实例信号指令如下</p>
+</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s stop</span><br><span class="line">./nginx -s quit</span><br><span class="line">./nginx -s reload</span><br><span class="line">./nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>//todo多看看nginx的进程模型及nginx抢占机制这块知识<br><img src="/images/WGMHZNCTSG.png" alt="nginx进程模型"></p>
+<h1 id="nginx事件处理模型"><a href="#nginx事件处理模型" class="headerlink" title="nginx事件处理模型"></a>nginx事件处理模型</h1><ul>
+<li>nginx事件处理模型类似于多路复用</li>
+</ul>
+<p><img src="/images/YSGFWLTNXZI.png" alt="nginx事件处理模型"></p>
+<h1 id="nginx常见的问题"><a href="#nginx常见的问题" class="headerlink" title="nginx常见的问题"></a>nginx常见的问题</h1><h2 id="open-“-XXX-XXX-nginx-pid”-failed-2-No-such-file-or-directory"><a href="#open-“-XXX-XXX-nginx-pid”-failed-2-No-such-file-or-directory" class="headerlink" title="open “/XXX/XXX/nginx.pid” failed (2: No such file or directory)"></a>open “/XXX/XXX/nginx.pid” failed (2: No such file or directory)</h2><ul>
+<li>首先进入pid目录</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /XXX/XXX</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果提示cd: /XXX/XXX：没有哪个文件或目录，创建目录</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /XXX/XXX</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx-error-invalid-PID-number-“”-“in-xxx-xxx-nginx-pid”"><a href="#nginx-error-invalid-PID-number-“”-“in-xxx-xxx-nginx-pid”" class="headerlink" title="nginx:[error] invalid PID number “” “in /xxx/xxx/nginx.pid”"></a>nginx:[error] invalid PID number “” “in /xxx/xxx/nginx.pid”</h2><ul>
+<li><p>该错误告诉我们这个pid无效，我们只需要重新指定一下nginx的配置文件</p>
+</li>
+<li><p>首先查看nginx的帮助命令,在nginx安装目录下的sbin目录下执行</p>
+</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -h</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>命令结果</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line">  //-c查看帮助</span><br><span class="line">  -?,-h         : this help</span><br><span class="line">  //查看版本</span><br><span class="line">  -v            : show version and exit</span><br><span class="line">  //版本及具体编译安装环境配置参数</span><br><span class="line">  -V            : show version and configure options then exit</span><br><span class="line">  //校验配置文件是否正确</span><br><span class="line">  -t            : test configuration and exit</span><br><span class="line">  -T            : test configuration, dump it and exit</span><br><span class="line">  -q            : suppress non-error messages during configuration testing</span><br><span class="line">  //发送信号给nginx:master进程，stop停止/quit优雅停止/reopen重新打开/reload重新装载</span><br><span class="line">  -s signal     : send signal to a master process: stop, quit, reopen, reload</span><br><span class="line">  //nginx安装路径</span><br><span class="line">  -p prefix     : set prefix path (default: /usr/local/nginx/)</span><br><span class="line">  //-c指定配置文件路径</span><br><span class="line">  -c filename   : set configuration file (default: conf/nginx.conf)</span><br><span class="line">  -g directives : set global directives out of configuration file</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -c /.../conf/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<h1 id="nginx日志切割"><a href="#nginx日志切割" class="headerlink" title="nginx日志切割"></a>nginx日志切割</h1><ul>
+<li>随着时间的推移项目日志越大，达到10GB甚至几十GB，不便于日志分析，我们需要对日志进行切割</li>
+</ul>
+<h2 id="手动切割日志的脚本"><a href="#手动切割日志的脚本" class="headerlink" title="手动切割日志的脚本"></a>手动切割日志的脚本</h2><ul>
+<li>创建一个可执行的shell脚本：cut_my_log.sh，内容如下：</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">LOG_PATH=&quot;/var/log/nginx&quot;</span><br><span class="line">RECORD_TIME=$(date -d &quot;yesterday&quot; +%Y-%m-%d+%H:%M)</span><br><span class="line">PID=/var/run/nginx/nginx.pid</span><br><span class="line">mv $&#123;LOG_PATH&#125;/access.log $&#123;LOG_PATH&#125;/access.$&#123;RECORD_TIME&#125;.log</span><br><span class="line">mv $&#123;LOG_PATH&#125;/error.log $&#123;LOG_PATH&#125;/access.$&#123;RECORD_TIME&#125;.log</span><br><span class="line">#向nginx:master进程发送信号，用于重新打开日志文件</span><br><span class="line">kill -USR1 `cat $PID`</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为cut_my_log.sh脚本添加执行权限</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x cut_my_log.sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="nginx匹配规则"><a href="#nginx匹配规则" class="headerlink" title="nginx匹配规则"></a>nginx匹配规则</h1><ul>
+<li><p>location / #路径存在即可访问</p>
+</li>
+<li><p>location = / #精确匹配 （这里只能访问到根）</p>
+</li>
+<li><p>location ~ .(GIF|png|bmp|jpg|jpeg) #正则表达式不带*区分大小写</p>
+</li>
+<li><p>location ~* .(GIF|png|bmp|jpg|jpeg) #正则表达式带*不区分大小写</p>
+</li>
+<li><p>location ^~ /xxx/xxx #不使用正则表达式以/xxx/xxx路径开头</p>
+</li>
+</ul>
+<h1 id="upstream指令参数"><a href="#upstream指令参数" class="headerlink" title="upstream指令参数"></a>upstream指令参数</h1><ul>
+<li>upstream指定参数以key与value的形式配置到ip及端口的后面如下所示</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcats &#123;</span><br><span class="line">     server 192.168.1.101:8080 key=value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="指令参数"><a href="#指令参数" class="headerlink" title="指令参数"></a>指令参数</h2><hr>
+<h3 id="max-conns-count-根据服务器性能设置过载保护做限流现作用，每个工作进程都能生效，在1-11-5之前这个参数只适用于商业版本"><a href="#max-conns-count-根据服务器性能设置过载保护做限流现作用，每个工作进程都能生效，在1-11-5之前这个参数只适用于商业版本" class="headerlink" title="max_conns=count (根据服务器性能设置过载保护做限流现作用，每个工作进程都能生效，在1.11.5之前这个参数只适用于商业版本)"></a>max_conns=count (根据服务器性能设置过载保护做限流现作用，每个工作进程都能生效，在1.11.5之前这个参数只适用于商业版本)</h3><hr>
+<h3 id="slow-start-time-服务器恢复过后经过time的时间过后再加入到upstream集群中，商业版nginx中才能使用"><a href="#slow-start-time-服务器恢复过后经过time的时间过后再加入到upstream集群中，商业版nginx中才能使用" class="headerlink" title="slow_start=time(服务器恢复过后经过time的时间过后再加入到upstream集群中，商业版nginx中才能使用)"></a>slow_start=time(服务器恢复过后经过time的时间过后再加入到upstream集群中，商业版nginx中才能使用)</h3><hr>
+<h3 id="down-配置该服务器在集群中标记为不可用状态"><a href="#down-配置该服务器在集群中标记为不可用状态" class="headerlink" title="down 配置该服务器在集群中标记为不可用状态"></a>down 配置该服务器在集群中标记为不可用状态</h3><hr>
+<h3 id="back-标记该服务是一台备用机，集群中其它服务器不可用的时候会启动该台服务器进行备用"><a href="#back-标记该服务是一台备用机，集群中其它服务器不可用的时候会启动该台服务器进行备用" class="headerlink" title="back 标记该服务是一台备用机，集群中其它服务器不可用的时候会启动该台服务器进行备用"></a>back 标记该服务是一台备用机，集群中其它服务器不可用的时候会启动该台服务器进行备用</h3><hr>
+<h3 id="max-fails-count最大失败次数"><a href="#max-fails-count最大失败次数" class="headerlink" title="max_fails=count最大失败次数"></a>max_fails=count最大失败次数</h3><h3 id="fail-time-out-time"><a href="#fail-time-out-time" class="headerlink" title="fail_time_out=time"></a>fail_time_out=time</h3><h3 id="以上两个参数连用表示time时间内失败次数超过count就会将服务踢出upstream集群中，15s后再尝试请求是否正常如此往复"><a href="#以上两个参数连用表示time时间内失败次数超过count就会将服务踢出upstream集群中，15s后再尝试请求是否正常如此往复" class="headerlink" title="以上两个参数连用表示time时间内失败次数超过count就会将服务踢出upstream集群中，15s后再尝试请求是否正常如此往复"></a>以上两个参数连用表示time时间内失败次数超过count就会将服务踢出upstream集群中，15s后再尝试请求是否正常如此往复</h3><hr>
+<h1 id="keepalive-count提高吞吐量"><a href="#keepalive-count提高吞吐量" class="headerlink" title="keepalive=count提高吞吐量"></a>keepalive=count提高吞吐量</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcats &#123;</span><br><span class="line">	server 192.168.1.101:8080;</span><br><span class="line">	#保持长连接的数量</span><br><span class="line">	keepalive 32;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">	listen		80;</span><br><span class="line">	server_name	www.tomcats.com;</span><br><span class="line">	location / &#123;</span><br><span class="line">		proxy_pass http://tomcats;</span><br><span class="line">		#协议版本号http1.1才支持保持长连接避免服务经常创建关闭消耗服务器资源</span><br><span class="line">		proxy_http_version 1.1;</span><br><span class="line">		#清除collection中的信息</span><br><span class="line">		proxy_set_header Connection &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="ip-hash-ip地址取模请求打到固定的服务器上面"><a href="#ip-hash-ip地址取模请求打到固定的服务器上面" class="headerlink" title="ip_hash ip地址取模请求打到固定的服务器上面"></a>ip_hash ip地址取模请求打到固定的服务器上面</h1><ul>
+<li><p>配置方式如下即可</p>
+</li>
+<li><p>不同ip的客户端会会固定的请求到不同的固定服务器</p>
+</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcats &#123;</span><br><span class="line">	#ip_hash根据请求的ip地址与集群中服务器的数量进行求模操作</span><br><span class="line">	ip_hash;</span><br><span class="line">	server 192.168.1.101:8080;</span><br><span class="line">	server 192.168.1.102:8080;</span><br><span class="line">	server 192.168.1.103:8080;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ip-hash在nginx源码中的算法"><a href="#ip-hash在nginx源码中的算法" class="headerlink" title="ip_hash在nginx源码中的算法"></a>ip_hash在nginx源码中的算法</h2><ul>
+<li><p>ip_hash源码在安装包内/src/http/modules/ngx_http_upstream_ip_hash_module.c文件中</p>
+</li>
+<li><p>源码中通过”.”对ip进行切割的数组长度为4，索引为0~3，取索引2进行取模，所以在本地内网环境访问服务器的时候看不出来不同的ip打到了相同的服务器</p>
+<h2 id="ip-hash注意"><a href="#ip-hash注意" class="headerlink" title="ip_hash注意"></a>ip_hash注意</h2></li>
+<li><p>使用ip_hash的时候如果其中一台服务器出现了问题我们需要移除不能在upstrem中直接删除，否则hash的值会发生改变，请求的服务器就会发生改变，我们应该将服务器标记为down不被请求。</p>
+</li>
+</ul>
+<h2 id="ip-hash带来的问题"><a href="#ip-hash带来的问题" class="headerlink" title="ip_hash带来的问题"></a>ip_hash带来的问题</h2><ul>
+<li>如果服务器数量发生变化，无论是新增或者减少都会导致hash算法算出来的值发生变化，会话丢失，缓存无法访问等问题。</li>
+</ul>
+<h1 id="一致性哈希算法"><a href="#一致性哈希算法" class="headerlink" title="一致性哈希算法"></a>一致性哈希算法</h1><ul>
+<li>一致性哈希算法是将用户哈希到这个环上，相同的用户在访问的主机不会发生变化，只有当主机节点数量发生变化的时候才会有少量的用户主机请求的服务器发生变化,保证大部分用户请求的主机不会发生变化。</li>
+</ul>
+<h2 id="原有的服务器及用户状态"><a href="#原有的服务器及用户状态" class="headerlink" title="原有的服务器及用户状态"></a>原有的服务器及用户状态</h2><p><img src="/images/img_2.png" alt="原有节点及用户状态"></p>
+<h2 id="服务器数量减少"><a href="#服务器数量减少" class="headerlink" title="服务器数量减少"></a>服务器数量减少</h2><p><img src="/images/img_3.png" alt="服务器数量减少"></p>
+<ul>
+<li>图中节点3移除了，原有访问节点3的2个少量用户转移到了节点4，其余节点上的用户访问的服务器不发生变化</li>
+</ul>
+<h2 id="假如说要增加服务器"><a href="#假如说要增加服务器" class="headerlink" title="假如说要增加服务器"></a>假如说要增加服务器</h2><p><img src="/images/img_4.png" alt="服务器数量增加"></p>
+<ul>
+<li>图中我们看出服务器数量增加只有一个用户变更了服务器的请求地址，其余用户不发生改变。</li>
+</ul>
+<h1 id="Nginx负载均衡算法有哪些"><a href="#Nginx负载均衡算法有哪些" class="headerlink" title="Nginx负载均衡算法有哪些"></a>Nginx负载均衡算法有哪些</h1><ul>
+<li><p>nginx默认使用轮询算法。</p>
+</li>
+<li><p>ip_hash根据请求客户端的ip进行哈希请求到固定的服务器。</p>
+</li>
+<li><p>url_hash根据url地址进行hash请求到固定的服务器。</p>
+</li>
+<li><p>least_conn哪台服务器的连接数少就连接到哪一台服务器</p>
+</li>
+</ul>
+<h1 id="配置nginx静态资源文件缓存过期时间"><a href="#配置nginx静态资源文件缓存过期时间" class="headerlink" title="配置nginx静态资源文件缓存过期时间"></a>配置nginx静态资源文件缓存过期时间</h1><ul>
+<li>在nginx配置结构中的http层进行配置</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">proxy_cache_path /usr/local/nginx/upstream_cache keys_zone=mycache:5m max_size=1g inactive=30s use_temp_path=off;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">	listen		80;</span><br><span class="line">	server_name	www.tomcats.com;</span><br><span class="line">	</span><br><span class="line">	#静态资源开启并且使用缓存</span><br><span class="line">	proxy_cache mycache;</span><br><span class="line">	#针对200和304状态码的缓存设置过期时间为8h</span><br><span class="line">	proxy_cache_valid	200 304 8h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>proxy_cache_path 设置缓存保存的目录</p>
+</li>
+<li><p>/usr/local/nginx/upstream_cache是定义的保存缓存的路径</p>
+</li>
+<li><p>keys_zone 设置共享内存一级占用空间的大小</p>
+</li>
+<li><p>max_size 设置缓存大小</p>
+</li>
+<li><p>inactive 超过此时间缓存自动清理</p>
+</li>
+<li><p>use_temp_path 关闭临时目录</p>
+</li>
+</ul>
+<h1 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h1><h2 id="什么是动静分离？"><a href="#什么是动静分离？" class="headerlink" title="什么是动静分离？"></a>什么是动静分离？</h2><blockquote>
+<p>动静分离本质是将前端静态资源与我们后端服务的接口分开减小后端服务器的压力，提高静态资源的访问速度（静态资源可以是被缓存的访问起来更快，后端不需要渲染页面）</p>
+</blockquote>
+<blockquote>
+<p>静态数据：css/js/html/images/audios/videos/…</p>
+</blockquote>
+<blockquote>
+<p>动态数据：后端接口，不同时间得到的响应可能不同</p>
+</blockquote>
+<h2 id="动静分离的特点"><a href="#动静分离的特点" class="headerlink" title="动静分离的特点"></a>动静分离的特点</h2><blockquote>
+<p>分布式</p>
+</blockquote>
+<blockquote>
+<p>前后端接口</p>
+</blockquote>
+<blockquote>
+<p>静态归nginx</p>
+</blockquote>
+<blockquote>
+<p>接口服务化</p>
+</blockquote>
+<h2 id="动静分离实现方式"><a href="#动静分离实现方式" class="headerlink" title="动静分离实现方式"></a>动静分离实现方式</h2><blockquote>
+<p>使用cdn加速</p>
+</blockquote>
+<p><img src="/images/img_42.png" alt="cdm加速"></p>
+<blockquote>
+<p>使用nginx实现动静分离</p>
+</blockquote>
+<p><img src="/images/img_43.png" alt="nginx"></p>
+<h1 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h1><blockquote>
+<p>nginx配置管理工具<a href="http://www.nginxwebui.cn/" target="_blank" rel="noopener">nginxWebUI</a></p>
+</blockquote>
+<blockquote>
+<p>自建ngrok，从此抛弃花生壳<a href="https://www.vediotalk.com/archives/336" target="_blank" rel="noopener">教程地址</a></p>
+</blockquote>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/11/12/CentOS安装Nginx/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/11/12/CentOS安装Nginx/" itemprop="url">CentOS安装Nginx</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-12T11:55:00+08:00">2020-11-12 11:55:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/安装教程/" itemprop="url" rel="index"><span itemprop="name">安装教程</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="下载并上传nginx安装包到linux"><a href="#下载并上传nginx安装包到linux" class="headerlink" title="下载并上传nginx安装包到linux"></a>下载并上传nginx安装包到linux</h1><h1 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h1><ul>
+<li>安装gcc环境</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装pcre库用于正则表达式</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>zlib压缩和解压缩依赖</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ssl安全的加密的套接字协议，用与HTTP的安全传输，也就是https</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
+<h1 id="解压nginx"><a href="#解压nginx" class="headerlink" title="解压nginx"></a>解压nginx</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.16.1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建nginx临时目录"><a href="#创建nginx临时目录" class="headerlink" title="创建nginx临时目录"></a>创建nginx临时目录</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/temp/nginx -p</span><br></pre></td></tr></table></figure>
+
+<h1 id="在nginx目录下输入如下命令进行配置，目的是为了创建makefile文件"><a href="#在nginx目录下输入如下命令进行配置，目的是为了创建makefile文件" class="headerlink" title="在nginx目录下输入如下命令进行配置，目的是为了创建makefile文件"></a>在nginx目录下输入如下命令进行配置，目的是为了创建makefile文件</h1><ul>
+<li>参数命令</li>
+</ul>
+<p>在安装包解压目录下复制如下命令直接生成makefile文件</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">./configure \</span><br><span class="line">--prefix=/usr/local/nginx \</span><br><span class="line">--pid-path=/var/run/nginx/nginx.pid \</span><br><span class="line">--lock-path=/var/lock/nginx.lock \</span><br><span class="line">--error-log-path=/var/log/nginx/error.log \</span><br><span class="line">--http-log-path=/var/log/nginx/access.log \</span><br><span class="line">--with-http_gzip_static_module \</span><br><span class="line">--http-client-body-temp-path=/var/temp/nginx/client \</span><br><span class="line">--http-proxy-temp-path=/var/temp/nginx/proxy \</span><br><span class="line">--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \</span><br><span class="line">--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \</span><br><span class="line">--http-scgi-temp-path=/var/temp/nginx/scgi \</span><br><span class="line">--with-http_ssl_module</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>各个参数代表的含义</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–prefix</td>
+<td>指定nginx安装位置</td>
+</tr>
+<tr>
+<td>–pid-path</td>
+<td>指向nginx的pid</td>
+</tr>
+<tr>
+<td>–lock-path</td>
+<td>锁定安装文件、防止恶意篡改或误操作</td>
+</tr>
+<tr>
+<td>–error-log-path</td>
+<td>错误日志</td>
+</tr>
+<tr>
+<td>–http-log-path</td>
+<td>http日志</td>
+</tr>
+<tr>
+<td>–with-http_gzip_static_module</td>
+<td>启动gzip模块，在线实时压缩数据流</td>
+</tr>
+<tr>
+<td>–http-client-body-temp-path</td>
+<td>设定客户端请求的临时目录</td>
+</tr>
+<tr>
+<td>–http-proxy-temp-path</td>
+<td>设定http代理临时目录</td>
+</tr>
+<tr>
+<td>–http-fastcgi-temp-path</td>
+<td>设定fastcgi临时目录</td>
+</tr>
+<tr>
+<td>–http-uwsgi-temp-path</td>
+<td>设定uwsgi临时目录</td>
+</tr>
+<tr>
+<td>–http-scgi-temp-path</td>
+<td>设定scgi临时目录</td>
+</tr>
+<tr>
+<td>–with-http_ssl_module</td>
+<td>如果要配置ssl域名证书需要安装ssl模块</td>
+</tr>
+</tbody></table>
+<h1 id="查看安装包目录下的objs目录"><a href="#查看安装包目录下的objs目录" class="headerlink" title="查看安装包目录下的objs目录"></a>查看安装包目录下的objs目录</h1><blockquote>
+<p>查看objs目录下的ngx_modules.c，已经包含ssl相关模块内容如下</p>
+</blockquote>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;ngx_config.h&gt;</span><br><span class="line">#include &lt;ngx_core.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">extern ngx_module_t  ngx_core_module;</span><br><span class="line">extern ngx_module_t  ngx_errlog_module;</span><br><span class="line">extern ngx_module_t  ngx_conf_module;</span><br><span class="line">extern ngx_module_t  ngx_events_module;</span><br><span class="line">extern ngx_module_t  ngx_event_core_module;</span><br><span class="line">extern ngx_module_t  ngx_epoll_module;</span><br><span class="line">extern ngx_module_t  ngx_openssl_module;</span><br><span class="line">extern ngx_module_t  ngx_regex_module;</span><br><span class="line">extern ngx_module_t  ngx_http_module;</span><br><span class="line">extern ngx_module_t  ngx_http_core_module;</span><br><span class="line">extern ngx_module_t  ngx_http_log_module;</span><br><span class="line">extern ngx_module_t  ngx_http_upstream_module;</span><br><span class="line">extern ngx_module_t  ngx_http_static_module;</span><br><span class="line">extern ngx_module_t  ngx_http_gzip_static_module;</span><br><span class="line">extern ngx_module_t  ngx_http_autoindex_module;</span><br><span class="line">extern ngx_module_t  ngx_http_index_module;</span><br><span class="line">extern ngx_module_t  ngx_http_auth_basic_module;</span><br><span class="line">extern ngx_module_t  ngx_http_access_module;</span><br><span class="line">extern ngx_module_t  ngx_http_limit_conn_module;</span><br><span class="line">extern ngx_module_t  ngx_http_limit_req_module;</span><br><span class="line">extern ngx_module_t  ngx_http_geo_module;</span><br><span class="line">extern ngx_module_t  ngx_http_map_module;</span><br><span class="line">extern ngx_module_t  ngx_http_split_clients_module;</span><br><span class="line">extern ngx_module_t  ngx_http_referer_module;</span><br><span class="line">extern ngx_module_t  ngx_http_rewrite_module;</span><br><span class="line">extern ngx_module_t  ngx_http_ssl_module;</span><br><span class="line">extern ngx_module_t  ngx_http_proxy_module;</span><br><span class="line">extern ngx_module_t  ngx_http_fastcgi_module;</span><br><span class="line">extern ngx_module_t  ngx_http_uwsgi_module;</span><br><span class="line">extern ngx_module_t  ngx_http_scgi_module;</span><br><span class="line">extern ngx_module_t  ngx_http_memcached_module;</span><br><span class="line">extern ngx_module_t  ngx_http_empty_gif_module;</span><br><span class="line">extern ngx_module_t  ngx_http_browser_module;</span><br><span class="line">extern ngx_module_t  ngx_http_upstream_hash_module;</span><br><span class="line">extern ngx_module_t  ngx_http_upstream_ip_hash_module;</span><br><span class="line">extern ngx_module_t  ngx_http_upstream_least_conn_module;</span><br><span class="line">extern ngx_module_t  ngx_http_upstream_keepalive_module;</span><br><span class="line">extern ngx_module_t  ngx_http_upstream_zone_module;</span><br><span class="line">extern ngx_module_t  ngx_http_write_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_header_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_chunked_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_range_header_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_gzip_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_postpone_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_ssi_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_charset_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_userid_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_headers_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_copy_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_range_body_filter_module;</span><br><span class="line">extern ngx_module_t  ngx_http_not_modified_filter_module;</span><br><span class="line"></span><br><span class="line">ngx_module_t *ngx_modules[] = &#123;</span><br><span class="line">    &amp;ngx_core_module,</span><br><span class="line">    &amp;ngx_errlog_module,</span><br><span class="line">    &amp;ngx_conf_module,</span><br><span class="line">    &amp;ngx_events_module,</span><br><span class="line">    &amp;ngx_event_core_module,</span><br><span class="line">    &amp;ngx_epoll_module,</span><br><span class="line">    &amp;ngx_openssl_module,</span><br><span class="line">    &amp;ngx_regex_module,</span><br><span class="line">    &amp;ngx_http_module,</span><br><span class="line">    &amp;ngx_http_core_module,</span><br><span class="line">    &amp;ngx_epoll_module,</span><br><span class="line">    &amp;ngx_openssl_module,</span><br><span class="line">    &amp;ngx_regex_module,</span><br><span class="line">    &amp;ngx_http_module,</span><br><span class="line">    &amp;ngx_http_core_module,</span><br><span class="line">    &amp;ngx_http_log_module,</span><br><span class="line">    &amp;ngx_http_upstream_module,</span><br><span class="line">    &amp;ngx_http_static_module,</span><br><span class="line">    &amp;ngx_http_gzip_static_module,</span><br><span class="line">    &amp;ngx_http_autoindex_module,</span><br><span class="line">    &amp;ngx_http_index_module,</span><br><span class="line">    &amp;ngx_http_auth_basic_module,</span><br><span class="line">    &amp;ngx_http_access_module,</span><br><span class="line">    &amp;ngx_http_limit_conn_module,</span><br><span class="line">    &amp;ngx_http_limit_req_module,</span><br><span class="line">    &amp;ngx_http_geo_module,</span><br><span class="line">    &amp;ngx_http_map_module,</span><br><span class="line">    &amp;ngx_http_split_clients_module,</span><br><span class="line">    &amp;ngx_http_referer_module,</span><br><span class="line">    &amp;ngx_http_rewrite_module,</span><br><span class="line">    &amp;ngx_http_ssl_module,</span><br><span class="line">    &amp;ngx_http_proxy_module,</span><br><span class="line">    &amp;ngx_http_fastcgi_module,</span><br><span class="line">    &amp;ngx_http_uwsgi_module,</span><br><span class="line">    &amp;ngx_http_scgi_module,</span><br><span class="line">    &amp;ngx_http_memcached_module,</span><br><span class="line">    &amp;ngx_http_empty_gif_module,</span><br><span class="line">    &amp;ngx_http_browser_module,</span><br><span class="line">    &amp;ngx_http_upstream_hash_module,</span><br><span class="line">    &amp;ngx_http_upstream_ip_hash_module,</span><br><span class="line">    &amp;ngx_http_upstream_least_conn_module,</span><br><span class="line">    &amp;ngx_http_upstream_keepalive_module,</span><br><span class="line">    &amp;ngx_http_upstream_zone_module,</span><br><span class="line">    &amp;ngx_http_write_filter_module,</span><br><span class="line">    &amp;ngx_http_header_filter_module,</span><br><span class="line">    &amp;ngx_http_chunked_filter_module,</span><br><span class="line">    &amp;ngx_http_range_header_filter_module,</span><br><span class="line">    &amp;ngx_http_gzip_filter_module,</span><br><span class="line">    &amp;ngx_http_postpone_filter_module,</span><br><span class="line">    &amp;ngx_http_ssi_filter_module,</span><br><span class="line">    &amp;ngx_http_charset_filter_module,</span><br><span class="line">    &amp;ngx_http_userid_filter_module,</span><br><span class="line">    &amp;ngx_http_headers_filter_module,</span><br><span class="line">    &amp;ngx_http_copy_filter_module,</span><br><span class="line">    &amp;ngx_http_range_body_filter_module,</span><br><span class="line">    &amp;ngx_http_not_modified_filter_module,</span><br><span class="line">    NULL</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="通过Makefile进行编译"><a href="#通过Makefile进行编译" class="headerlink" title="通过Makefile进行编译"></a>通过Makefile进行编译</h1><ul>
+<li>在安装包解压目录下直接执行如下命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看nginx安装目录"><a href="#查看nginx安装目录" class="headerlink" title="查看nginx安装目录"></a>查看nginx安装目录</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis nginx</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx</span><br></pre></td></tr></table></figure>
+
+<h1 id="停止nginx"><a href="#停止nginx" class="headerlink" title="停止nginx"></a>停止nginx</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s stop</span><br></pre></td></tr></table></figure>
+
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li><p>如果在云服务器安装需要开启默认的nginx端口：80</p>
+</li>
+<li><p>如果在虚拟机安装，需要关闭防火墙</p>
+</li>
+<li><p>本地win或mac需要关闭防火墙</p>
+</li>
+</ul>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Nginx/" rel="tag"><i class="fas fa-tags"></i>Nginx</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/11/07/spring的7种事物的传播行为/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/11/07/spring的7种事物的传播行为/" itemprop="url">spring的7种事物的传播行为</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-07T16:24:00+08:00">2020-11-07 16:24:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/Spring/事物/" itemprop="url" rel="index"><span itemprop="name">事物</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="Transaction注解"><a href="#Transaction注解" class="headerlink" title="@Transaction注解"></a>@Transaction注解</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Inherited</span><br><span class="line">@Documented</span><br><span class="line">public @interface Transactional &#123;</span><br><span class="line">	//与value互为别名(互为别名的属性值必须设置默认值；互为别名不能同时设置)</span><br><span class="line">	@AliasFor(&quot;transactionManager&quot;)</span><br><span class="line">	String value() default &quot;&quot;;</span><br><span class="line">	@AliasFor(&quot;value&quot;)</span><br><span class="line">	String transactionManager() default &quot;&quot;;</span><br><span class="line">    </span><br><span class="line">	//事物传播行为(默认值Propagation.REQUIRED如果有事务, 那么加入事务, 没有的话新建一个)</span><br><span class="line">	Propagation propagation() default Propagation.REQUIRED;</span><br><span class="line">   </span><br><span class="line">	//事物隔离级别</span><br><span class="line">	Isolation isolation() default Isolation.DEFAULT;</span><br><span class="line">   </span><br><span class="line">	//事物超时设置</span><br><span class="line">	int timeout() default TransactionDefinition.TIMEOUT_DEFAULT;</span><br><span class="line">   </span><br><span class="line">	//设置当前事物是否为只读事物</span><br><span class="line">	boolean readOnly() default false;</span><br><span class="line">   </span><br><span class="line">	//当方法中抛出指定异常数组中的异常时，则进行事务回滚</span><br><span class="line">	//@Transactional(rollbackFor=&#123;RuntimeException.class, Exception.class&#125;)</span><br><span class="line">	Class&lt;? extends Throwable&gt;[] rollbackFor() default &#123;&#125;;</span><br><span class="line">   </span><br><span class="line">	//当方法中抛出指定异常名称数组中的异常时，则进行事务回滚。</span><br><span class="line">	//@Transactional(rollbackForClassName=&#123;&quot;RuntimeException&quot;,&quot;Exception&quot;&#125;)</span><br><span class="line">	String[] rollbackForClassName() default &#123;&#125;;</span><br><span class="line">   </span><br><span class="line">	//当方法中抛出指定异常数组中的异常时，不进行事务回滚。</span><br><span class="line">	//@Transactional(noRollbackFor=&#123;RuntimeException.class, Exception.class&#125;)</span><br><span class="line">	Class&lt;? extends Throwable&gt;[] noRollbackFor() default &#123;&#125;;</span><br><span class="line">   </span><br><span class="line">	//当方法中抛出指定异常名称数组中的异常时，不进行事务回滚。</span><br><span class="line">	//@Transactional(noRollbackForClassName=&#123;&quot;RuntimeException&quot;,&quot;Exception&quot;&#125;)</span><br><span class="line">	String[] noRollbackForClassName() default &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li><p>该注解中的方法Transaction#propagation()说明了事物的传播行为返回的是枚举类型Propagation</p>
+</li>
+<li><p>@Transactional 只能被应用到public方法上否则没有事物功能</p>
+</li>
+<li><p>@Transactional 注解可以被应用于接口定义和接口方法</p>
+</li>
+<li><p>Spring团队的建议是你在具体的类（或类的方法）上使用 @Transactional 注解，而不要使用在类所要实现的任何接口上。你当然可以在接口上使用 @Transactional 注解，但是这将只能当你设置了基于接口的代理时它才生效。因为注解是不能继承的，这就意味着如果你正在使用基于类的代理时，那么事务的设置将不能被基于类的代理所识别，而且对象也将不会被事务代理所包装（将被确认为严重的）。</p>
+</li>
+</ul>
+<h1 id="事物的传播行为Propagation"><a href="#事物的传播行为Propagation" class="headerlink" title="事物的传播行为Propagation"></a>事物的传播行为Propagation</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Propagation &#123;</span><br><span class="line">	<span class="comment">//如果有事务, 那么加入事务, 没有的话新建一个(默认)</span></span><br><span class="line">	REQUIRED(TransactionDefinition.PROPAGATION_REQUIRED),</span><br><span class="line">    </span><br><span class="line">	<span class="comment">//如果当前调用有事物则使用事物，如果当前调用没有事物则不使用事物</span></span><br><span class="line">	SUPPORTS(TransactionDefinition.PROPAGATION_SUPPORTS),</span><br><span class="line">   </span><br><span class="line">	<span class="comment">//必须在一个已有的事务中执行,否则抛出异常</span></span><br><span class="line">	MANDATORY(TransactionDefinition.PROPAGATION_MANDATORY),</span><br><span class="line">   </span><br><span class="line">	<span class="comment">//不管是否存在事务,都创建一个新的事务,原来的挂起,新的执行完毕,继续执行老的事务</span></span><br><span class="line">	REQUIRES_NEW(TransactionDefinition.PROPAGATION_REQUIRES_NEW),</span><br><span class="line">   </span><br><span class="line">	<span class="comment">//如果当前有事物将事物挂起，自己不使用事物进行数据库操作</span></span><br><span class="line">	NOT_SUPPORTED(TransactionDefinition.PROPAGATION_NOT_SUPPORTED),</span><br><span class="line">   </span><br><span class="line">	<span class="comment">//必须在一个没有的事务中执行,否则抛出异常(与Propagation.MANDATORY相反)</span></span><br><span class="line">	NEVER(TransactionDefinition.PROPAGATION_NEVER),</span><br><span class="line">   </span><br><span class="line">	<span class="comment">//支持当前事务，如果当前事务存在，则执行一个嵌套事务，当前事务提交时嵌套事物才能提交；如果当前没有事务，就新建一个事务。</span></span><br><span class="line">	NESTED(TransactionDefinition.PROPAGATION_NESTED);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="事物隔离级别Isolation"><a href="#事物隔离级别Isolation" class="headerlink" title="事物隔离级别Isolation"></a>事物隔离级别Isolation</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Isolation &#123;</span><br><span class="line">	<span class="comment">//使用数据库默认的隔离级别</span></span><br><span class="line">	DEFAULT(TransactionDefinition.ISOLATION_DEFAULT),</span><br><span class="line">	<span class="comment">//读未提交（脏读、不可重复读、幻读）</span></span><br><span class="line">	READ_UNCOMMITTED(TransactionDefinition.ISOLATION_READ_UNCOMMITTED),</span><br><span class="line">	<span class="comment">//不可重复读（解决：脏读/未解决：不可重复读、幻读）</span></span><br><span class="line">	READ_COMMITTED(TransactionDefinition.ISOLATION_READ_COMMITTED),</span><br><span class="line">	<span class="comment">//可重复读(mysql默认使用的隔离级别)（解决：脏读、不可重复读/未解决：幻读）</span></span><br><span class="line">	REPEATABLE_READ(TransactionDefinition.ISOLATION_REPEATABLE_READ),</span><br><span class="line">	<span class="comment">//串行化（解决所有问题）</span></span><br><span class="line">	SERIALIZABLE(TransactionDefinition.ISOLATION_SERIALIZABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="事物的基本要素-ACID"><a href="#事物的基本要素-ACID" class="headerlink" title="事物的基本要素(ACID)"></a>事物的基本要素(ACID)</h1><h2 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h2><ul>
+<li>事务开始后所有操作，要么全部做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错，会回滚到事务开始前的状态，所有的操作就像没有发生一样。也就是说事务是一个不可分割的整体，就像化学中学过的原子，是物质构成的基本单位。</li>
+</ul>
+<h2 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h2><ul>
+<li>事务开始前和结束后，数据库的完整性约束没有被破坏 。比如A向B转账，不可能A扣了钱，B却没收到。</li>
+</ul>
+<h2 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h2><ul>
+<li>同一时间，只允许一个事务请求同一数据，不同的事务之间彼此没有任何干扰。</li>
+</ul>
+<h2 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h2><ul>
+<li>事务完成后，事务对数据库的所有更新将被保存到数据库，不能回滚。</li>
+</ul>
+<h1 id="事物的并发问题"><a href="#事物的并发问题" class="headerlink" title="事物的并发问题"></a>事物的并发问题</h1><h2 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h2><ul>
+<li>事务A读取了事务B更新的数据，然后B回滚操作，那么A读取到的数据是脏数据</li>
+</ul>
+<h2 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h2><ul>
+<li>事务 A 多次读取同一数据，事务 B 在事务A多次读取的过程中，对数据作了更新并提交，导致事务A多次读取同一数据时，结果 不一致。</li>
+</ul>
+<h2 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h2><ul>
+<li>系统管理员A将数据库中所有学生的成绩从具体分数改为ABCDE等级，但是系统管理员B就在这个时候插入了一条具体分数的记录，当系统管理员A改结束后发现还有一条记录没有改过来，就好像发生了幻觉一样，这就叫幻读。</li>
+</ul>
+<h2 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h2><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：不可重复读的和幻读很容易混淆，不可重复读侧重于修改，幻读侧重于新增或删除。解决不可重复读的问题只需锁住满足条件的行，解决幻读需要锁表。</span><br></pre></td></tr></table></figure>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/JAVA/" rel="tag"><i class="fas fa-tags"></i>JAVA</a>
+        
+        <a class="post-tag button" href="/tags/Spring/" rel="tag"><i class="fas fa-tags"></i>Spring</a>
+        
+        <a class="post-tag button" href="/tags/事物/" rel="tag"><i class="fas fa-tags"></i>事物</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/11/04/springboot排除依赖/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/11/04/springboot排除依赖/" itemprop="url">springboot排除依赖</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-04T15:12:15+08:00">2020-11-04 15:12:15</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <ul>
+<li>需求：由于我们的项目是父子结构的Maven项目，可能我们在parent项目中依赖了很多基础包（可能包含有redis，数据库的相关包），那我们的子项目全部依赖parent，但是可能我们的服务是消息队列（不需要Redis/数据库），定时任务服务（不需要Redis）等等，所以我们需要排序不需要的组件</li>
+</ul>
+<h1 id="排除Maven依赖使用exclusion标签"><a href="#排除Maven依赖使用exclusion标签" class="headerlink" title="排除Maven依赖使用exclusion标签"></a>排除Maven依赖使用exclusion标签</h1><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;  </span><br><span class="line">    &lt;groupId&gt;com.nk&lt;/groupId&gt;  </span><br><span class="line">    &lt;artifactId&gt;system&lt;/artifactId&gt;  </span><br><span class="line">    &lt;version&gt;0.0.1&lt;/version&gt;  </span><br><span class="line">    &lt;exclusions&gt;  </span><br><span class="line">        &lt;exclusion&gt;  </span><br><span class="line">            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;  </span><br><span class="line">            &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;  </span><br><span class="line">        &lt;/exclusion&gt;  </span><br><span class="line">    &lt;/exclusions&gt;  </span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="禁用自动化配置避免今安在自动化配置"><a href="#禁用自动化配置避免今安在自动化配置" class="headerlink" title="禁用自动化配置避免今安在自动化配置"></a>禁用自动化配置避免今安在自动化配置</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableAutoConfiguration</span>(exclude=&#123;DataSourceAutoConfiguration.class&#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/maven/" rel="tag"><i class="fas fa-tags"></i>maven</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/11/04/springboog自动装配/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/11/04/springboog自动装配/" itemprop="url">springboot的自动装配</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-04T15:12:15+08:00">2020-11-04 15:12:15</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="启动方法"><a href="#启动方法" class="headerlink" title="启动方法"></a>启动方法</h1><ul>
+<li>Application#main()</li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(GoodsApplication.class, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>SpringApplication#run()</li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 一个静态助手通过传入的source使用默认配置</span></span><br><span class="line"><span class="comment"> * 运行一个spring应用,这个默认的配置来自于<span class="doctag">@SpringBootApplication</span>注解</span></span><br><span class="line"><span class="comment"> * args参数通常将main()方法中的参数传入即可</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回一个正在运行的上下文对象 &#123;<span class="doctag">@link</span> ApplicationContext&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ConfigurableApplicationContext <span class="title">run</span><span class="params">(Class&lt;?&gt; primarySource, String... args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> run(<span class="keyword">new</span> Class&lt;?&gt;[] &#123; primarySource &#125;, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Application启动类上的注解"><a href="#Application启动类上的注解" class="headerlink" title="Application启动类上的注解"></a>Application启动类上的注解</h1><ul>
+<li>@SpringBootApplication</li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="comment">//@Configuration的派生注解指定该类是一个配置类</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="comment">//开启自动配置(重点/约定大于配置)</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="comment">//扫描Appliaction类下的所有子包</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(excludeFilters = &#123; <span class="meta">@Filter</span>(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),<span class="meta">@Filter</span>(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) &#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="EnableAutoConfiguration-约定大于配置"><a href="#EnableAutoConfiguration-约定大于配置" class="headerlink" title="@EnableAutoConfiguration (约定大于配置)"></a>@EnableAutoConfiguration (约定大于配置)</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span></span><br><span class="line"><span class="comment">//import导入各种ConfigBean  自动装配的选择器(可以选择很多自动装配的类)</span></span><br><span class="line"><span class="meta">@Import</span>(AutoConfigurationImportSelector.class)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Import-AutoConfigurationImportSelector-class-选择自动装配的类"><a href="#Import-AutoConfigurationImportSelector-class-选择自动装配的类" class="headerlink" title="@Import(AutoConfigurationImportSelector.class) 选择自动装配的类"></a>@Import(AutoConfigurationImportSelector.class) 选择自动装配的类</h1><ul>
+<li><p>AutoConfigurationImportSelector#selectImports()是该类最重要的方法，用于选择需要装配的类</p>
+</li>
+<li><p>AutoConfigurationImportSelector#getAutoConfigurationEntry() 获取需要自动装配的类</p>
+</li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return the &#123;<span class="doctag">@link</span> AutoConfigurationEntry&#125; based on the &#123;<span class="doctag">@link</span> AnnotationMetadata&#125;</span></span><br><span class="line"><span class="comment"> * of the importing &#123;<span class="doctag">@link</span> Configuration <span class="doctag">@Configuration</span>&#125; class.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> autoConfigurationMetadata the auto-configuration metadata</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> annotationMetadata the annotation metadata of the configuration class</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the auto-configurations that should be imported</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> AutoConfigurationEntry <span class="title">getAutoConfigurationEntry</span><span class="params">(AutoConfigurationMetadata autoConfigurationMetadata,</span></span></span><br><span class="line"><span class="function"><span class="params">		AnnotationMetadata annotationMetadata)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!isEnabled(annotationMetadata)) &#123;</span><br><span class="line">		<span class="keyword">return</span> EMPTY_ENTRY;</span><br><span class="line">	&#125;</span><br><span class="line">	AnnotationAttributes attributes = getAttributes(annotationMetadata);</span><br><span class="line">	<span class="comment">//获取候选的自动装配的类</span></span><br><span class="line">	List&lt;String&gt; configurations = getCandidateConfigurations(annotationMetadata, attributes);</span><br><span class="line">	configurations = removeDuplicates(configurations);</span><br><span class="line">	Set&lt;String&gt; exclusions = getExclusions(annotationMetadata, attributes);</span><br><span class="line">	checkExcludedClasses(configurations, exclusions);</span><br><span class="line">	configurations.removeAll(exclusions);</span><br><span class="line">	configurations = filter(configurations, autoConfigurationMetadata);</span><br><span class="line">	fireAutoConfigurationImportEvents(configurations, exclusions);</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> AutoConfigurationEntry(configurations, exclusions);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>AutoConfigurationImportSelector#getCandidateConfigurations() 获取候选自动配置</li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return the auto-configuration class names that should be considered. By default</span></span><br><span class="line"><span class="comment"> * this method will load candidates using &#123;<span class="doctag">@link</span> SpringFactoriesLoader&#125; with</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> #getSpringFactoriesLoaderFactoryClass()&#125;.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> metadata the source metadata</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> attributes the &#123;<span class="doctag">@link</span> #getAttributes(AnnotationMetadata) annotation</span></span><br><span class="line"><span class="comment"> * attributes&#125;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> a list of candidate configurations</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getCandidateConfigurations</span><span class="params">(AnnotationMetadata metadata, AnnotationAttributes attributes)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//具体在这里可以抽时间细细分析</span></span><br><span class="line">	List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),</span><br><span class="line">			getBeanClassLoader());</span><br><span class="line">	<span class="comment">//configurations集合为空的话报异常，在META-INF/spring.factories下面找不到自动装配的类，如果使用的是自定义包装，请确保该文件正确无误。</span></span><br><span class="line">	Assert.notEmpty(configurations, <span class="string">"No auto configuration classes found in META-INF/spring.factories. If you "</span></span><br><span class="line">			+ <span class="string">"are using a custom packaging, make sure that file is correct."</span>);</span><br><span class="line">	<span class="keyword">return</span> configurations;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="META-INF-spring-factories"><a href="#META-INF-spring-factories" class="headerlink" title="META-INF/spring.factories"></a>META-INF/spring.factories</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"># Initializers</span><br><span class="line">org.springframework.context.ApplicationContextInitializer=\</span><br><span class="line">org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer,\</span><br><span class="line">org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener</span><br><span class="line"></span><br><span class="line"># Application Listeners</span><br><span class="line">org.springframework.context.ApplicationListener=\</span><br><span class="line">org.springframework.boot.autoconfigure.BackgroundPreinitializer</span><br><span class="line"></span><br><span class="line"># Auto Configuration Import Listeners</span><br><span class="line">org.springframework.boot.autoconfigure.AutoConfigurationImportListener=\</span><br><span class="line">org.springframework.boot.autoconfigure.condition.ConditionEvaluationReportAutoConfigurationImportListener</span><br><span class="line"></span><br><span class="line"># Auto Configuration Import Filters</span><br><span class="line">org.springframework.boot.autoconfigure.AutoConfigurationImportFilter=\</span><br><span class="line">org.springframework.boot.autoconfigure.condition.OnBeanCondition,\</span><br><span class="line">org.springframework.boot.autoconfigure.condition.OnClassCondition,\</span><br><span class="line">org.springframework.boot.autoconfigure.condition.OnWebApplicationCondition</span><br><span class="line"></span><br><span class="line"># Auto Configure</span><br><span class="line">org.springframework.boot.autoconfigure.EnableAutoConfiguration=\</span><br><span class="line">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cloud.CloudServiceConnectorsAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.couchbase.CouchbaseAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.cassandra.CassandraRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.couchbase.CouchbaseDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.couchbase.CouchbaseReactiveDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.couchbase.CouchbaseReactiveRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.couchbase.CouchbaseRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.jdbc.JdbcRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.ldap.LdapRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.mongo.MongoReactiveDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.mongo.MongoReactiveRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.neo4j.Neo4jDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.neo4j.Neo4jRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.solr.SolrRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.elasticsearch.jest.JestAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.elasticsearch.rest.RestClientAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.hazelcast.HazelcastAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.hazelcast.HazelcastJpaDependencyAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.influx.InfluxDbAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.JmsAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.JndiConnectionFactoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.activemq.ActiveMQAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.artemis.ArtemisAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jersey.JerseyAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jooq.JooqAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.ldap.LdapAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mongo.MongoReactiveAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.quartz.QuartzAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.reactor.core.ReactorCoreAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.sendgrid.SendGridAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.session.SessionAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.oauth2.client.reactive.ReactiveOAuth2ClientAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.oauth2.resource.reactive.ReactiveOAuth2ResourceServerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.solr.SolrAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration,\</span><br><span class="line"># spring事物的自动装配,SpringApplication项目启动的时候会自动装配，需要使用事物的地方只要添加上@TransAction注解即可开启事物</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration,\</span><br><span class="line">#springboot内置Tomcat容器</span><br><span class="line">org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.reactive.HttpHandlerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.reactive.ReactiveWebServerFactoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.reactive.error.ErrorWebFluxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.reactive.function.client.ClientHttpConnectorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration,\</span><br><span class="line"><span class="comment">//内置的Tomcat在这里被启动(org.apache.catalina.startup.Tomcat)</span></span><br><span class="line">org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration,\</span><br><span class="line"><span class="comment">//springMvc的自动装配配置</span></span><br><span class="line">org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.reactive.WebSocketReactiveAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.servlet.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.webservices.WebServicesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.webservices.client.WebServiceTemplateAutoConfiguration</span><br><span class="line"></span><br><span class="line"># Failure analyzers</span><br><span class="line">org.springframework.boot.diagnostics.FailureAnalyzer=\</span><br><span class="line">org.springframework.boot.autoconfigure.diagnostics.analyzer.NoSuchBeanDefinitionFailureAnalyzer,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceBeanCreationFailureAnalyzer,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.HikariDriverConfigurationFailureAnalyzer,\</span><br><span class="line">org.springframework.boot.autoconfigure.session.NonUniqueSessionRepositoryFailureAnalyzer</span><br><span class="line"></span><br><span class="line"># Template availability providers</span><br><span class="line">org.springframework.boot.autoconfigure.template.TemplateAvailabilityProvider=\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerTemplateAvailabilityProvider,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheTemplateAvailabilityProvider,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAvailabilityProvider,\</span><br><span class="line">org.springframework.boot.autoconfigure.thymeleaf.ThymeleafTemplateAvailabilityProvider,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.servlet.JspTemplateAvailabilityProvider</span><br></pre></td></tr></table></figure>
+
+<h1 id="EmbeddedWebServerFactoryCustomizerAutoConfiguration-class"><a href="#EmbeddedWebServerFactoryCustomizerAutoConfiguration-class" class="headerlink" title="EmbeddedWebServerFactoryCustomizerAutoConfiguration.class"></a>EmbeddedWebServerFactoryCustomizerAutoConfiguration.class</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Nested configuration if Tomcat is being used.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(&#123; Tomcat.class, UpgradeProtocol.class &#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TomcatWebServerFactoryCustomizerConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TomcatWebServerFactoryCustomizer <span class="title">tomcatWebServerFactoryCustomizer</span><span class="params">(Environment environment,</span></span></span><br><span class="line"><span class="function"><span class="params">			ServerProperties serverProperties)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> TomcatWebServerFactoryCustomizer(environment, serverProperties);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/springboot/" rel="tag"><i class="fas fa-tags"></i>springboot</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2020/06/05/CompletableFuture构建异步应用/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/06/05/CompletableFuture构建异步应用/" itemprop="url">CompletableFuture构建异步应用</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-06-05T17:11:15+08:00">2020-06-05 17:11:15</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="Future接口的局限性"><a href="#Future接口的局限性" class="headerlink" title="Future接口的局限性"></a>Future接口的局限性</h1><p>我们知道Future接口提供了方法来检测异步计算是否已经结束（使用isDone方法），等待异步操作结束，以及获取计算的结果。<br>但是这些特性还不足以让你编写简洁的并发代码。<br>我们很难表述Future结果之间的依赖性；从文字描述上这很简单，“当长时间计算任务完成时，请将该计算的结果通知到另一个长时间运行的计算任务，这两个计算任务都完成后，将计算的结果与另一个查询操作结果合并”。<br>使用Future中提供的方法完成这样的操作又是另外一回事。这也是我们需要更具描述能力的特性的原因，比如下面这些。</p>
+<ul>
+<li>将两个异步计算合并为一个——这两个异步计算之间相互独立，同时第二个又依赖于第一个的结果。</li>
+<li>等待Future集合中的所有任务都完成。</li>
+<li>仅等待Future集合中最快结束的任务完成（有可能因为它们试图通过不同的方式计算同一个值），并返回它的结果。</li>
+<li>通过编程方式完成一个Future任务的执行（即以手工设定异步操作结果的方式）。</li>
+<li>应对Future的完成事件（即当Future的完成事件发生时会收到通知，并能使用Future计算的结果进行下一步的操作，不只是简单地阻塞等待操作的结果）。</li>
+</ul>
+<h1 id="店铺实体类"><a href="#店铺实体类" class="headerlink" title="店铺实体类"></a>店铺实体类</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> world.ismyfree.async.demo01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.CompletableFuture;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Future;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：tanliyuan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/6/4 21:27</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> ：商店实体</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shop</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Random random = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="keyword">private</span> String shopName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setShopName</span><span class="params">(String shopName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.shopName = shopName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getShopName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> shopName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Shop</span><span class="params">(String shopName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.shopName = shopName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> calculatePrice(product);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Future&lt;Double&gt; <span class="title">getPriceAsync</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> CompletableFuture.supplyAsync(() -&gt; calculatePrice(product));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">calculatePrice</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">        delay();</span><br><span class="line">        <span class="keyword">return</span> random.nextDouble() * product.charAt(<span class="number">0</span>) + product.charAt(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="店铺测试代码"><a href="#店铺测试代码" class="headerlink" title="店铺测试代码"></a>店铺测试代码</h1><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> world.ismyfree.async.demo01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.CompletableFuture;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executor;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ThreadFactory;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：tanliyuan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/6/5 10:32</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> ：</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShopTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 商店列表</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;Shop&gt; shops = Arrays.asList(</span><br><span class="line">            <span class="keyword">new</span> Shop(<span class="string">"BestShop"</span>),</span><br><span class="line">            <span class="keyword">new</span> Shop(<span class="string">"MyShop"</span>),</span><br><span class="line">            <span class="keyword">new</span> Shop(<span class="string">"YourShop"</span>),</span><br><span class="line">            <span class="keyword">new</span> Shop(<span class="string">"SuperShop"</span>)</span><br><span class="line">    );</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定制多线程执行器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Executor executor = Executors.newFixedThreadPool(Math.min(shops.size(), <span class="number">100</span>), <span class="keyword">new</span> ThreadFactory() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Thread <span class="title">newThread</span><span class="params">(Runnable r)</span> </span>&#123;</span><br><span class="line">            Thread t = <span class="keyword">new</span> Thread(r);</span><br><span class="line">            t.setDaemon(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">return</span> t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * CompletableFuture版本获取价格</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> product</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getPricesCompletetableFuture</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">        List&lt;CompletableFuture&lt;String&gt;&gt; pricesFuture = shops.stream().map(</span><br><span class="line">                s -&gt; CompletableFuture.supplyAsync(</span><br><span class="line">                        () -&gt; String.format(<span class="string">"%s在%s的价格是%s"</span>, product, s.getShopName(), s.getPrice(product)),</span><br><span class="line">                        executor</span><br><span class="line">                )</span><br><span class="line">        ).collect(Collectors.toList());</span><br><span class="line">        System.out.println(<span class="string">"异步对象已经返回,等待耗时任务计算完成"</span>);</span><br><span class="line">        <span class="keyword">return</span> pricesFuture.stream().map(CompletableFuture::join).collect(Collectors.toList());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用顺序流获取商品的价格</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> product</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getPricesStream</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> shops.stream().map(s -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> s.getShopName() + <span class="string">"的价格是"</span> + s.getPrice(product);</span><br><span class="line">        &#125;).collect(Collectors.toList());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用并发流获取商品的价格</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> product</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getPricesParallelStream</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> shops.parallelStream().map(s -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> s.getShopName() + <span class="string">"的价格是"</span> + s.getPrice(product);</span><br><span class="line">        &#125;).collect(Collectors.toList());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 做一些有意义的事情</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"做一些其他有意义的事"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        <span class="comment">//System.out.println(getPricesStream("Apples"));</span></span><br><span class="line">        <span class="comment">//System.out.println(getPricesParallelStream("Apples"));</span></span><br><span class="line">        System.out.println(getPricesCompletetableFuture(<span class="string">"Apples"</span>));</span><br><span class="line">        <span class="keyword">long</span> invocationTime = System.currentTimeMillis() - start;</span><br><span class="line">        System.out.printf(<span class="string">"异步对象返回时间%d毫秒%n"</span>, invocationTime);</span><br><span class="line">        doSomething();</span><br><span class="line">        <span class="keyword">long</span> retrievalTime = System.currentTimeMillis() - start;</span><br><span class="line">        System.out.printf(<span class="string">"计算结果返回时间%d毫秒%n"</span>, retrievalTime);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>持续更新中》》》》》</p>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/异步应用开发/" rel="tag"><i class="fas fa-tags"></i>异步应用开发</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2019/11/17/Docker命令大全/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/11/17/Docker命令大全/" itemprop="url">Docker命令大全</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-11-17T22:01:53+08:00">2019-11-17 22:01:53</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/容器化/" itemprop="url" rel="index"><span itemprop="name">容器化</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="容器生命周期管理"><a href="#容器生命周期管理" class="headerlink" title="容器生命周期管理"></a>容器生命周期管理</h1><h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>docker run ：创建一个新的容器并运行一个命令</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="OPTIONS说明："><a href="#OPTIONS说明：" class="headerlink" title="OPTIONS说明："></a>OPTIONS说明：</h3><ul>
+<li><p>-a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；</p>
+</li>
+<li><p>-d: 后台运行容器，并返回容器ID；</p>
+</li>
+<li><p>-i: 以交互模式运行容器，通常与 -t 同时使用；</p>
+</li>
+<li><p>-P: 随机端口映射，容器内部端口随机映射到主机的高端口；</p>
+</li>
+<li><p>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</li>
+<li><p>–name=”nginx-lb”: 为容器指定一个名称；</p>
+</li>
+<li><p>–dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；</p>
+</li>
+<li><p>–dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；</p>
+</li>
+<li><p>-h “mars”: 指定容器的hostname；</p>
+</li>
+<li><p>-e username=”ritchie”: 设置环境变量；</p>
+</li>
+<li><p>–env-file=[]: 从指定文件读入环境变量；</p>
+</li>
+<li><p>–cpuset=”0-2” or –cpuset=”0,1,2”: 绑定容器到指定CPU运行；</p>
+</li>
+<li><p>-m :设置容器使用内存最大值；</p>
+</li>
+<li><p>–net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；</p>
+</li>
+<li><p>–link=[]: 添加链接到另一个容器；</p>
+</li>
+<li><p>–expose=[]: 开放一个端口或一组端口；</p>
+</li>
+<li><p>–volume , -v:    绑定一个卷；</p>
+</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>使用docker镜像nginx:latest以后台模式启动一个容器,并将容器命名为mynginx。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mynginx -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>使用镜像nginx:latest以后台模式启动一个容器,并将容器的80端口映射到主机随机端口。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -P -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>使用镜像 nginx:latest，以后台模式启动一个容器,将容器的 80 端口映射到主机的 80 端口,主机的目录 /data 映射到容器的 /data。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 80:80 -v /data:/data -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>绑定容器的 8080 端口，并将其映射到本地主机 127.0.0.1 的 80 端口上。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 127.0.0.1:80:8080/tcp ubuntu bash</span><br></pre></td></tr></table></figure>
+
+<p>使用镜像nginx:latest以交互模式启动一个容器,在容器内执行/bin/bash命令。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it nginx:latest /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="start-stop-restart"><a href="#start-stop-restart" class="headerlink" title="start/stop/restart"></a>start/stop/restart</h2><p>docker start :启动一个或多个已经被停止的容器</p>
+<p>docker stop :停止一个运行中的容器</p>
+<p>docker restart :重启容器</p>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="OPTIONS说明：-1"><a href="#OPTIONS说明：-1" class="headerlink" title="OPTIONS说明："></a>OPTIONS说明：</h3><ul>
+<li><p>-a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；</p>
+</li>
+<li><p>-d: 后台运行容器，并返回容器ID；</p>
+</li>
+<li><p>-d: 后台运行容器，并返回容器ID；</p>
+</li>
+<li><p>-i: 以交互模式运行容器，通常与 -t 同时使用；</p>
+</li>
+<li><p>-P: 随机端口映射，容器内部端口随机映射到主机的高端口</p>
+</li>
+<li><p>-p: 指定端口映射，格式为：主机(宿主)端口:容器端口</p>
+</li>
+<li><p>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</li>
+<li><p>–name=”nginx-lb”: 为容器指定一个名称；</p>
+</li>
+<li><p>–dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；</p>
+</li>
+<li><p>–dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；</p>
+</li>
+<li><p>-h “mars”: 指定容器的hostname；</p>
+</li>
+<li><p>–env-file=[]: 从指定文件读入环境变量；</p>
+</li>
+<li><p>–cpuset=”0-2” or –cpuset=”0,1,2”: 绑定容器到指定CPU运行；</p>
+</li>
+<li><p>-m :设置容器使用内存最大值；</p>
+</li>
+<li><p>–net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；</p>
+</li>
+<li><p>–link=[]: 添加链接到另一个容器；</p>
+</li>
+<li><p>–expose=[]: 开放一个端口或一组端口；</p>
+</li>
+<li><p>–volume , -v:    绑定一个卷；</p>
+</li>
+</ul>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p>使用docker镜像nginx:latest以后台模式启动一个容器,并将容器命名为mynginx。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mynginx -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>使用镜像nginx:latest以后台模式启动一个容器,并将容器的80端口映射到主机随机端口。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -P -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>使用镜像 nginx:latest，以后台模式启动一个容器,将容器的 80 端口映射到主机的 80 端口,主机的目录 /data 映射到容器的 /data。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 80:80 -v /data:/data -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>绑定容器的 8080 端口，并将其映射到本地主机 127.0.0.1 的 80 端口上。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 127.0.0.1:80:8080/tcp ubuntu bash</span><br></pre></td></tr></table></figure>
+
+<p>使用镜像nginx:latest以交互模式启动一个容器,在容器内执行/bin/bash命令。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it nginx:latest /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>docker kill :杀掉一个运行中的容器。</p>
+<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">kill</span> [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="OPTIONS说明：-2"><a href="#OPTIONS说明：-2" class="headerlink" title="OPTIONS说明："></a>OPTIONS说明：</h3><ul>
+<li>-s :向容器发送一个信号；</li>
+</ul>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><p>杀掉运行中的容器mynginx</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">kill</span> -s KILL mynginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="pause-unpause"><a href="#pause-unpause" class="headerlink" title="pause/unpause"></a>pause/unpause</h2><p>docker pause :暂停容器中所有的进程。</p>
+<p>docker unpause :恢复容器中所有的进程。</p>
+<h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pause [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker unpause [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><p>暂停数据库容器db01提供服务。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pause db01</span><br></pre></td></tr></table></figure>
+
+<p>恢复数据库容器db01提供服务。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker unpause db01</span><br></pre></td></tr></table></figure>
+
+<h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><p>docker create ：创建一个新的容器但不启动它</p>
+<h3 id="OPTIONS说明：-3"><a href="#OPTIONS说明：-3" class="headerlink" title="OPTIONS说明："></a>OPTIONS说明：</h3><ul>
+<li><p>-a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；</p>
+</li>
+<li><p>-d: 后台运行容器，并返回容器ID；</p>
+</li>
+<li><p>-i: 以交互模式运行容器，通常与 -t 同时使用；</p>
+</li>
+<li><p>-P: 随机端口映射，容器内部端口随机映射到主机的高端口</p>
+</li>
+<li><p>-p: 指定端口映射，格式为：主机(宿主)端口:容器端口</p>
+</li>
+<li><p>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</li>
+<li><p>–name=”nginx-lb”: 为容器指定一个名称；</p>
+</li>
+<li><p>–dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；</p>
+</li>
+<li><p>–dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；</p>
+</li>
+<li><p>-h “mars”: 指定容器的hostname；</p>
+</li>
+<li><p>-e username=”ritchie”: 设置环境变量；</p>
+</li>
+<li><p>–env-file=[]: 从指定文件读入环境变量；</p>
+</li>
+<li><p>–cpuset=”0-2” or –cpuset=”0,1,2”: 绑定容器到指定CPU运行；</p>
+</li>
+<li><p>-m :设置容器使用内存最大值；</p>
+</li>
+<li><p>–net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；</p>
+</li>
+<li><p>–link=[]: 添加链接到另一个容器；</p>
+</li>
+<li><p>–expose=[]: 开放一个端口或一组端口；</p>
+</li>
+<li><p>–volume , -v:    绑定一个卷 ；</p>
+</li>
+</ul>
+<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker create [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h3><p>使用docker镜像nginx:latest创建一个容器,并将容器命名为myrunoob。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker create --name myrunoob nginx:latest</span><br></pre></td></tr></table></figure>
+
+<h2 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h2><p>docker exec ：在运行的容器中执行命令</p>
+<h3 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> [OPTIONS] CONTAINER COMMAND [ARG...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="OPTIONS说明：-4"><a href="#OPTIONS说明：-4" class="headerlink" title="OPTIONS说明："></a>OPTIONS说明：</h3><ul>
+<li><p>-d :分离模式: 在后台运行</p>
+</li>
+<li><p>-i :即使没有附加也保持STDIN 打开</p>
+</li>
+<li><p>-t :分配一个伪终端</p>
+</li>
+</ul>
+<h3 id="实例-5"><a href="#实例-5" class="headerlink" title="实例"></a>实例</h3><p>在容器 mynginx 中以交互模式执行容器内 /root/runoob.sh 脚本:</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mynginx /bin/sh /root/runoob.sh</span><br></pre></td></tr></table></figure>
+
+<p>在容器 mynginx 中开启一个交互模式的终端:</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -i -t  mynginx /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>也可以通过 docker ps -a 命令查看已经在运行的容器，然后使用容器 ID 进入容器。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">9df70f9a0714        openjdk             <span class="string">"/usercode/script.sh…"</span> </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 9df70f9a0714 /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h1 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h1><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><h2 id="inspect"><a href="#inspect" class="headerlink" title="inspect"></a>inspect</h2><h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><h2 id="attach"><a href="#attach" class="headerlink" title="attach"></a>attach</h2><h2 id="events"><a href="#events" class="headerlink" title="events"></a>events</h2><h2 id="logs"><a href="#logs" class="headerlink" title="logs"></a>logs</h2><h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><h2 id="port"><a href="#port" class="headerlink" title="port"></a>port</h2><h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><h2 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h2><h1 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h1><h2 id="login"><a href="#login" class="headerlink" title="login"></a>login</h2><h2 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h2><h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><h2 id="search"><a href="#search" class="headerlink" title="search"></a>search</h2><h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><h2 id="images"><a href="#images" class="headerlink" title="images"></a>images</h2><h2 id="rmi"><a href="#rmi" class="headerlink" title="rmi"></a>rmi</h2><h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><h2 id="build"><a href="#build" class="headerlink" title="build"></a>build</h2><h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><h2 id="save"><a href="#save" class="headerlink" title="save"></a>save</h2><h2 id="load"><a href="#load" class="headerlink" title="load"></a>load</h2><h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><h1 id="info-version"><a href="#info-version" class="headerlink" title="info/version"></a>info/version</h1><h2 id="info"><a href="#info" class="headerlink" title="info"></a>info</h2><h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><p>持续更新中》》》》》</p>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Docker/" rel="tag"><i class="fas fa-tags"></i>Docker</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2019/09/11/Ubuntu18-04上安装Docker/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tan Liyuan">
+        <meta itemprop="description" content="一个热爱生活的小男孩">
+        <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/09/11/Ubuntu18-04上安装Docker/" itemprop="url">Ubuntu18.04上安装Docker</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-09-11T23:40:52+08:00">2019-09-11 23:40:52</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h1 id="使当前用户成为root身份"><a href="#使当前用户成为root身份" class="headerlink" title="使当前用户成为root身份"></a>使当前用户成为root身份</h1><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
+<h1 id="检查当前运行的Linux内核的版本"><a href="#检查当前运行的Linux内核的版本" class="headerlink" title="检查当前运行的Linux内核的版本"></a>检查当前运行的Linux内核的版本</h1><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+
+<p>查看看我们系统正在使用的内核版本</p>
+<h1 id="检查Ubuntu版本"><a href="#检查Ubuntu版本" class="headerlink" title="检查Ubuntu版本"></a>检查Ubuntu版本</h1><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/lsb-release</span><br></pre></td></tr></table></figure>
+
+<p>该命令显示Ubuntu版本是18.04</p>
+<h1 id="安装软件之前更新Ubuntu"><a href="#安装软件之前更新Ubuntu" class="headerlink" title="安装软件之前更新Ubuntu"></a>安装软件之前更新Ubuntu</h1><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h1 id="从Ubuntu存储库安装Docker"><a href="#从Ubuntu存储库安装Docker" class="headerlink" title="从Ubuntu存储库安装Docker"></a>从Ubuntu存储库安装Docker</h1><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install docker.io</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动Docker并使用systemctl命令将其添加到引导时间"><a href="#启动Docker并使用systemctl命令将其添加到引导时间" class="headerlink" title="启动Docker并使用systemctl命令将其添加到引导时间"></a>启动Docker并使用systemctl命令将其添加到引导时间</h1><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+
+<h1 id="检查Docker版本"><a href="#检查Docker版本" class="headerlink" title="检查Docker版本"></a>检查Docker版本</h1><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+
+<p>到这就安装完成了，你可以尽情玩你的docker了，嘻嘻！！！</p>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Docker/" rel="tag"><i class="fas fa-tags"></i>Docker</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/tanliyuan_katong.jpg" alt="Tan Liyuan">
+  
+  <h1 class="author-name">Tan Liyuan</h1>
+  <h2 class="author-description">一个热爱生活的小男孩</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">31</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">12</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">16</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:15803657214@163.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/developertanliyuan/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/577007836" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://sh.alynx.one/" target="_blank">喵's StackHarbor</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="http://www.dyboy.cn/" target="_blank">第一资源网</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://info.liuwenhao.store/" target="_blank">刘文豪的个人主页</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Tan Liyuan</span><span class="year"><i class="far fa-copyright"></i>2022</span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

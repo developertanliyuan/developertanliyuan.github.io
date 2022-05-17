@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color>
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="DeveloperTanliyuan" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/[object Object].css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>redis有哪些数据类型及使用场景 | DeveloperTanliyuan - 编程开发、分享生活、分享技术</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">DeveloperTanliyuan</a></h1>
+        <h2 class="subtitle">编程开发、分享生活、分享技术</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/dog.gif" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i>favicons<span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://developertanliyuan.github.io/2019/08/30/redis有哪些数据类型及使用场景/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Tan Liyuan">
+       <meta itemprop="description" content="一个热爱生活的小男孩">
+       <meta itemprop="image" content="/images/tanliyuan_katong.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="DeveloperTanliyuan">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">redis有哪些数据类型及使用场景</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-30T01:42:39+08:00">2019-08-30 01:42:39</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/缓存/" itemprop="url" rel="index"><span itemprop="name">缓存</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="字符串类型（String）"><a href="#字符串类型（String）" class="headerlink" title="字符串类型（String）"></a>字符串类型（String）</h1><ul>
+<li>举例应用场景</li>
+</ul>
+<p>商品编号，订单号采用string 的递增数字特性生成</p>
+<ul>
+<li><p>redis的string 类型可以包含任意数据，包括图片等二进制或者序列化的对象等。单个value的值最大上限为1G字节。</p>
+</li>
+<li><p>纯字符串操作命令</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set key1 &apos;hello redis&apos; # 存值</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get key1 # 取值</span><br><span class="line">&quot;hello redis&quot;</span><br><span class="line">127.0.0.1:6379&gt; getset key1 redis # 将给定key1的值设为redis，并返回key1的旧值(old value)</span><br><span class="line">&quot;hello redis&quot;</span><br><span class="line">127.0.0.1:6379&gt; get key1</span><br><span class="line">&quot;redis&quot;</span><br><span class="line">127.0.0.1:6379&gt; del key1 # 删除 key1</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>整数自增自减操作命令</p>
+</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set key2 10 # 存入一个值为10的整数字符串</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; incr key2 # 自增</span><br><span class="line">(integer) 11</span><br><span class="line">127.0.0.1:6379&gt; incr key2 # 自增</span><br><span class="line">(integer) 12</span><br><span class="line">127.0.0.1:6379&gt; incrby key2 5 # 自增指定数值 -- 5</span><br><span class="line">(integer) 17</span><br><span class="line">127.0.0.1:6379&gt; decr key2 # 自减</span><br><span class="line">(integer) 16</span><br><span class="line">127.0.0.1:6379&gt; decr key2 # 自减</span><br><span class="line">(integer) 15</span><br><span class="line">127.0.0.1:6379&gt;  decrby key2 5 # 自减指定数值 -- 5</span><br><span class="line">(integer) 10</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其他操作命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set key1 redis</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; append key1 hello # 将 hello 追加到 key1 原来的值的末尾,放回追加后字符串长度</span><br><span class="line">(integer) 10</span><br><span class="line">127.0.0.1:6379&gt; get key1</span><br><span class="line">&quot;redishello&quot;</span><br><span class="line">127.0.0.1:6379&gt; strlen key1 # 返回 key1 所储存的字符串值的长度</span><br><span class="line">(integer) 10</span><br><span class="line">127.0.0.1:6379&gt; mset key1 v1 key2 v2 key3 v3 # 批量同时设置一个或多个 key-value 对</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; mget key1 key2 key3 # 返回所有(一个或多个)给定 key 的值</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br><span class="line">3) &quot;v3&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="散列类型（Hash）"><a href="#散列类型（Hash）" class="headerlink" title="散列类型（Hash）"></a>散列类型（Hash）</h1><ul>
+<li>举例应用场景</li>
+</ul>
+<p>保存大量的对象数据</p>
+<ul>
+<li>redis hash介绍</li>
+</ul>
+<p>hash 叫散列类型。等价于Java 中的 HashMap。但是在 redis 中 hash 的 key 必须是 string 类型。不支持其他类型。这个特性非常适合存储对象。因为一个对象可以有很多属性，存储起来就是键值对形式的。在 Reids 中，每个 Hash 可以存储多达 4 亿个键值对。</p>
+<ul>
+<li>相关操作命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hset user name zhangsan # 使用 hset 为 user 添加一个键值对 name = zhangsan</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hset user age 18 # 使用 hset 为 user 添加一个键值对 age = 18</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hget user name # 使用 hget 获取 user 中键为 name 的值</span><br><span class="line">&quot;zhangsan&quot;</span><br><span class="line">127.0.0.1:6379&gt; hget user age # 使用 hget 获取 user 中键为 age 的值</span><br><span class="line">&quot;18&quot;</span><br><span class="line">127.0.0.1:6379&gt; hgetall user # 使用 hgetall 获取 user 中所有的键值对</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;zhangsan&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;18&quot;</span><br><span class="line">127.0.0.1:6379&gt; hmset user name lisi age 20 # 使用 hmset 为 user 批量添加键值对</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hmget user name age # 使用 hmget 批量获取 user 中键的值</span><br><span class="line">1) &quot;lisi&quot;</span><br><span class="line">2) &quot;20&quot;</span><br><span class="line">127.0.0.1:6379&gt; hdel user name# 使用 hdel 删除 user 一个（或多个）键值对</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hexists user name # 使用 hexists 判断 user 中 name 元素是否存在</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; hexists user age # 使用 hexists  user 中 age 元素是否存在</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hkeys user # 使用 hkeys 只获得 user 中的字段名</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">127.0.0.1:6379&gt; hvals user # 使用 hvals 只获得 user 中的字段值</span><br><span class="line">1) &quot;20&quot;</span><br><span class="line">127.0.0.1:6379&gt; hlen user # 使用 hlen 获得  user 中字段（键值对）数量</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h1 id="列表类型（List"><a href="#列表类型（List" class="headerlink" title="列表类型（List)"></a>列表类型（List)</h1><ul>
+<li>举例应用场景</li>
+</ul>
+<p>微博某个大v的粉丝就可以以list的格式放在redis里去缓存</p>
+<p>key=某大v  value=[zhangsan, lisi, wangwu]</p>
+<p>商品，博客，文章下面的评论列表。</p>
+<ul>
+<li>redis list介绍</li>
+</ul>
+<p>在 Redis 中的 List 类型，其内部使用的是双向链表实现的,所以它具有双向链表具有的相关特性。其常用操作就是向列表两端添加或删除元素。这使得 List 既可以当做栈（先进后出）来使用，也可以当做队列（先进先出）来使用。</p>
+<ul>
+<li>相关操作命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lpush list 1 2 3 4 # 使用 lpush 将 1 2 3 4 依次插入到 list 的左端</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; rpush list 5 6 7 8 # 使用 rpush 将 5 6 7 8 依次插入到 list 的右端</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; lrange list 0 -1 # 使用 lrange 获取 指定区间上所有值（0 -1 表示获取全部）</span><br><span class="line">1) &quot;4&quot;</span><br><span class="line">2) &quot;3&quot;</span><br><span class="line">3) &quot;2&quot;</span><br><span class="line">4) &quot;1&quot;</span><br><span class="line">5) &quot;5&quot;</span><br><span class="line">6) &quot;6&quot;</span><br><span class="line">7) &quot;7&quot;</span><br><span class="line">8) &quot;8&quot;</span><br><span class="line">127.0.0.1:6379&gt; lpop list # 使用 lpop 弹出 list 左端的一个值，并返回弹出的值</span><br><span class="line">&quot;4&quot;</span><br><span class="line">127.0.0.1:6379&gt; lpop list </span><br><span class="line">&quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpop list # 使用 rpop 弹出 list 右端的一个值，并返回弹出的值</span><br><span class="line">&quot;8&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpop list</span><br><span class="line">&quot;7&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange list 0 -1</span><br><span class="line">1) &quot;2&quot;</span><br><span class="line">2) &quot;1&quot;</span><br><span class="line">3) &quot;5&quot;</span><br><span class="line">4) &quot;6&quot;</span><br><span class="line">127.0.0.1:6379&gt; llen list # 使用 llen 获取 list 中元素个数</span><br><span class="line">(integer) 4</span><br></pre></td></tr></table></figure>
+
+<h1 id="集合类型（Set）"><a href="#集合类型（Set）" class="headerlink" title="集合类型（Set）"></a>集合类型（Set）</h1><ul>
+<li>举例应用场景</li>
+</ul>
+<p>可以基于set玩儿交集、并集、差集的操作</p>
+<p>可以把两个人的粉丝列表整一个交集，看看俩人的共同好友是谁</p>
+<ul>
+<li>相关操作命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd set a b c 1 2 3  # 使用 sadd 将 a b c 1 2 3 添加到 set 集合中</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; sadd set a b 2  # 添加重复元素，返回成功添加 0 个，说明 set 中元素不重复</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; srem set a b 1  # 使用 srem 删除 set 集合中的 a b 1 三个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; smembers set  # 使用 smembers 获取 set 集合中所以元素</span><br><span class="line">1) &quot;2&quot;</span><br><span class="line">2) &quot;c&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; sismember set a  # 使用 sismember 判断 a 是否在 set 集合中</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; sismember set c  # 使用 sismember 判断 c 是否在 set 集合中</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>集合的并集运算 A ∪ B</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd seta 1 2 3</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sadd setb 3 4 5</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sunion seta setb # 使用 sunion 计算 seta 和 setb 的并集</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">4) &quot;4&quot;</span><br><span class="line">5) &quot;5&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>集合的交集运算 A ∩ B</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd seta 1 2 3</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sadd setb 3 4 5</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sinter seta setb # 使用 sinter 计算 seta 和 setb 的交集</span><br><span class="line">1) &quot;3&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>集合的差集运算 A - B</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd seta 1 2 3</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sadd setb 3 4 5</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sdiff seta setb # 使用 sdiff 计算 seta - setb (属于seta 但不属于 setb)</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">127.0.0.1:6379&gt; sdiff setb seta # 使用 sdiff 计算 setb - setb (属于setb 但不属于 seta)</span><br><span class="line">1) &quot;4&quot;</span><br><span class="line">2) &quot;5&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="有序集合类型-sorted-set"><a href="#有序集合类型-sorted-set" class="headerlink" title="有序集合类型 (sorted set)"></a>有序集合类型 (sorted set)</h1><ul>
+<li>举例应用场景</li>
+</ul>
+<p>商品销售，软件下载等各种排行榜</p>
+<p>还可以分页查询</p>
+<ul>
+<li>相关操作命令</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; zadd board 81 java 75 python 90 c++ # 使用 zadd 增加一到多个value/score对，score 放在前面</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; zscore board java # 使用 zscore 获取 java 的 score</span><br><span class="line">&quot;81&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrange board 0 -1 # 使用 zrange 获取指定区间（0 -1 表示全部）上的降序排名</span><br><span class="line">1) &quot;python&quot;</span><br><span class="line">2) &quot;java&quot;</span><br><span class="line">3) &quot;c++&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrange board 0 -1 withscores # 带上 winthscores 可以一并获取元素的 score</span><br><span class="line">1) &quot;python&quot; </span><br><span class="line">2) &quot;75&quot;</span><br><span class="line">3) &quot;java&quot;</span><br><span class="line">4) &quot;81&quot;</span><br><span class="line">5) &quot;c++&quot;</span><br><span class="line">6) &quot;90&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrevrange board 0 -1 withscores # 使用 zrevrange 获取指定区间（0 -1 表示全部）上的升序排名</span><br><span class="line">1) &quot;c++&quot;</span><br><span class="line">2) &quot;90&quot;</span><br><span class="line">3) &quot;java&quot;</span><br><span class="line">4) &quot;81&quot;</span><br><span class="line">5) &quot;python&quot;</span><br><span class="line">6) &quot;75&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrangebyscore board -inf +inf withscores # 使用 zrangebyscore 获取 负无穷（-inf）到 正无穷（+inf）区间上所以元素的降序排名</span><br><span class="line">1) &quot;python&quot;</span><br><span class="line">2) &quot;75&quot;</span><br><span class="line">3) &quot;java&quot;</span><br><span class="line">4) &quot;81&quot;</span><br><span class="line">5) &quot;c++&quot;</span><br><span class="line">6) &quot;90&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrevrangebyscore board +inf -inf withscores # 使用 zrevrangebyscore 获取正无穷（+inf）到 负无穷（-inf）区间上所以元素的升序排名 </span><br><span class="line">1) &quot;c++&quot;</span><br><span class="line">2) &quot;90&quot;</span><br><span class="line">3) &quot;java&quot;</span><br><span class="line">4) &quot;81&quot;</span><br><span class="line">5) &quot;python&quot;</span><br><span class="line">6) &quot;75&quot;</span><br><span class="line">127.0.0.1:6379&gt; zcard board # 使用 zcard 计算 board 集合的元素个数</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; zrem board java python # 使用 zrem 删除 board 集合中的一个或多个元素 </span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
+
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/redis/" rel="tag"><i class="fas fa-tags"></i>redis</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果本文对你有所帮助，请赏我1个铜板买喵粮自己吃，您的支持是我最大的动力！！！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/29/redis的线程模型/" rel="next" title="redis的线程模型"><i class="fas fa-angle-left"></i><span class="nav-title">redis的线程模型</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/08/31/redis的过期策略/" rel="prev" title="redis的过期策略"><span class="nav-title">redis的过期策略</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/tanliyuan_katong.jpg" alt="Tan Liyuan">
+  
+  <h1 class="author-name">Tan Liyuan</h1>
+  <h2 class="author-description">一个热爱生活的小男孩</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">31</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">12</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">16</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#字符串类型（String）"><span class="toc-text">字符串类型（String）</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#散列类型（Hash）"><span class="toc-text">散列类型（Hash）</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#列表类型（List"><span class="toc-text">列表类型（List)</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#集合类型（Set）"><span class="toc-text">集合类型（Set）</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#有序集合类型-sorted-set"><span class="toc-text">有序集合类型 (sorted set)</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:15803657214@163.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/developertanliyuan/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/577007836" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://sh.alynx.one/" target="_blank">喵's StackHarbor</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="http://www.dyboy.cn/" target="_blank">第一资源网</a></li>
+        
+        <li><i class="fa fa-paperclip"></i><a href="https://info.liuwenhao.store/" target="_blank">刘文豪的个人主页</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Tan Liyuan</span><span class="year"><i class="far fa-copyright"></i>2022</span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
